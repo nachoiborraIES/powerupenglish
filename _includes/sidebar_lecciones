@@ -1,0 +1,16 @@
+<!-- _includes/sidebar_lecciones.html -->
+<div class="card shadow-sm border-0 mb-4">
+  <div class="card-header bg-primary text-white fw-bold">
+    {{ page.nivel }} - {% if page.lang == 'es' %}Lecciones{% else %}Lessons{% endif %}
+  </div>
+  <div class="list-group list-group-flush">
+    {% assign lecciones_filtradas = site.lecciones | where: "lang", page.lang | where: "nivel", page.nivel | sort: "order" %}
+    
+    {% for lesson in lecciones_filtradas %}
+      <a href="{{ lesson.url }}" 
+         class="list-group-item list-group-item-action {% if page.url == lesson.url %}active{% endif %}">
+         {{ lesson.title }}
+      </a>
+    {% endfor %}
+  </div>
+</div>

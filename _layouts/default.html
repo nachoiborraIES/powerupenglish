@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'es' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | PowerUp English</title>
+    <!-- Bootstrap Local -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    {% include header.html %}
+
+    <div class="container my-5">
+        <div class="row">
+            
+            <!-- COLUMNA LATERAL -->
+            <aside class="col-lg-3">
+                {% if page.collection == 'lecciones' %}
+                    {% include sidebar_lecciones.html %}
+                {% endif %}
+                
+                <!-- Aquí podrías incluir otros widgets fijos, como publicidad o enlaces sociales -->
+            </aside>
+
+            <!-- COLUMNA PRINCIPAL -->
+            <main class="col-lg-9">
+                {{ content }}
+            </main>
+
+        </div>
+    </div>
+
+    {% include footer.html %}
+
+    <!-- Scripts locales -->
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+title: PowerUp English
+email: info@powerupenglish.com
+description: Aprende inglés nivel a nivel.
+
+collections:
+  lecciones:
+    output: true
+    # La URL quedará como: /es/A1/past-simple/ o /en/A1/past-simple/
+    permalink: /:path/
+
+defaults:
+  - scope:
+      path: "_lecciones/es"
+    values:
+      lang: "es"
+  - scope:
+      path: "_lecciones/en"
+    values:
+      lang: "en"
+
+# Excluir archivos de procesamiento innecesario
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules

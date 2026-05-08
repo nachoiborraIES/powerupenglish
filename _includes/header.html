@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" href="/">
+      <span class="text-primary">PowerUp</span> English
+    </a>
+
+    <!-- Botón móvil -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="/">Home</a>
+        </li>
+        <!-- Ejemplo de enlace a un listado general -->
+        <li class="nav-item">
+          <a class="nav-link" href="/lecciones/{{ page.lang }}/A1/">Cursos A1</a>
+        </li>
+      </ul>
+
+      <!-- Selector de Idioma (Lógica de espejo) -->
+      <div class="d-flex align-items-center">
+        {% if page.ref %}
+          <div class="btn-group btn-group-sm" role="group" aria-label="Language selector">
+            {% assign equivalents = site.lecciones | where: "ref", page.ref %}
+            {% for eq in equivalents %}
+              <a href="{{ eq.url }}" 
+                 class="btn {% if eq.lang == page.lang %}btn-primary{% else %}btn-outline-light{% endif %}">
+                {{ eq.lang | upcase }}
+              </a>
+            {% endfor %}
+          </div>
+        {% else %}
+          <!-- Si no es una lección (ej. Home), ponemos enlaces fijos -->
+          <a href="/es/" class="btn btn-sm btn-outline-light me-1">ES</a>
+          <a href="/en/" class="btn btn-sm btn-outline-light">EN</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Sub-header opcional para navegación de niveles (solo si estás en una lección) -->
+{% if page.collection == 'lecciones' %}
+<div class="bg-light border-bottom py-2 d-lg-none">
+  <div class="container">
+    <button class="btn btn-sm btn-secondary w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMobile">
+      Ver lecciones de {{ page.nivel }}
+    </button>
+  </div>
+</div>
+{% endif %}
