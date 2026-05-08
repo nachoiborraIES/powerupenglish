@@ -2,6 +2,9 @@ title: PowerUp English
 email: info@powerupenglish.com
 description: Aprende inglés nivel a nivel.
 
+url: "https://powerupenglish.com" # Tu dominio final
+baseurl: ""
+
 collections:
   lecciones:
     output: true
@@ -18,8 +21,15 @@ defaults:
     values:
       lang: "en"
 
+markdown: kramdown
+highlighter: rouge
+
 # Excluir archivos de procesamiento innecesario
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
