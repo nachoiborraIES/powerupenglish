@@ -13,6 +13,7 @@ import argparse
 import http.server
 import socketserver
 import pathlib
+import re
 from ruamel.yaml import YAML
 import liquid
 
@@ -28,6 +29,19 @@ INCLUDES_DIR = BASE_DIR / "_includes"
 LAYOUTS_DIR = BASE_DIR / "_layouts"
 DATA_DIR = BASE_DIR / "_data"
 ASSETS_DIR = BASE_DIR / "assets"
+
+def jekyll_normalize(content: str) -> str:
+    """Normalize Jekyll tags (e.g. unquoted {% include file.ext %}) for standard Liquid engine."""
+    return re.sub(
+        r'\{%\s*include\s+([a-zA-Z0-9_\-\./]+\.[a-zA-Z0-9]+)(\s*.*?)%\}',
+        r'{% include "\1"\2 %}',
+        content
+    )
+
+class JekyllFileSystemLoader(liquid.FileSystemLoader):
+    def get_source(self, env, template_name, **kwargs):
+        source, full_name, uptodate, matter = super().get_source(env, template_name, **kwargs)
+        return jekyll_normalize(source), full_name, uptodate, matter
 
 def parse_front_matter(content: str):
     """Split front matter YAML from document body."""
@@ -84,7 +98,7 @@ def build_site():
     site_config["data"] = site_data
 
     # Setup Liquid environment
-    loader = liquid.FileSystemLoader(search_path=[INCLUDES_DIR, LAYOUTS_DIR])
+    loader = JekyllFileSystemLoader(search_path=[INCLUDES_DIR, LAYOUTS_DIR])
     env = liquid.Environment(loader=loader)
 
     # Register custom Jekyll filters
@@ -98,7 +112,7 @@ def build_site():
         for l_file in LAYOUTS_DIR.glob("*.html"):
             with open(l_file, "r", encoding="utf-8") as f:
                 l_fm, l_body = parse_front_matter(f.read())
-                layouts[l_file.stem] = (l_fm, l_body)
+                layouts[l_file.stem] = (l_fm, jekyll_normalize(l_body))
 
     # Find all source HTML files with front matter
     source_files = [BASE_DIR / "index.html"]
@@ -131,7 +145,7 @@ def build_site():
             page_dict["url"] = "/"
 
         # Render page body first
-        template = env.from_string(page_body)
+        template = env.from_string(jekyll_normalize(page_body))
         rendered_body = template.render(page=page_dict, site=site_config)
 
         # Handle layouts

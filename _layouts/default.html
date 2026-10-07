@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" data-lang="en">
 <head>
-  {% include "head.html" %}
+  {% include head.html %}
 </head>
 <body class="lang-en" {% if page.level %}data-active-level="{{ page.level }}"{% endif %}>
-  {% include "header.html" %}
+  {% include header.html %}
 
   <div class="site-body">
-    {% include "sidebar.html" %}
+    {% include sidebar.html %}
     <main class="site-main">
       {{ content }}
     </main>
   </div>
 
-  {% include "footer.html" %}
+  {% include footer.html %}
 </body>
 </html>
 
