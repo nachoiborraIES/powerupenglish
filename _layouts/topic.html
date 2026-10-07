@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}"><span class="lang-en">Home</span><span class="lang-es">Inicio</span></a>
+  <span class="breadcrumb-separator">/</span>
+  <span class="level-name"><span class="lang-en">Level {{ page.level | upcase }}</span><span class="lang-es">Nivel {{ page.level | upcase }}</span></span>
+  <span class="breadcrumb-separator">/</span>
+  <span class="current"><span class="lang-en">{{ page.title_en }}</span><span class="lang-es">{{ page.title_es }}</span></span>
+</nav>
+
+<header class="page-header-box">
+  <div class="page-header-meta">
+    <span class="cat-tag-pill cat-tag-{{ page.category }}" style="font-size: 0.8rem; padding: 0.3rem 0.75rem;">
+      {% case page.category %}
+        {% when "vocabulary" %}<span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span>
+        {% when "grammar" %}<span class="lang-en">Grammar</span><span class="lang-es">Gramática</span>
+        {% when "use-of-english" %}<span class="lang-en">Use of English</span><span class="lang-es">Uso del idioma</span>
+        {% when "exercises" %}<span class="lang-en">Exercises</span><span class="lang-es">Ejercicios</span>
+      {% endcase %}
+    </span>
+    <span class="sidebar-level-badge" style="margin-bottom:0;">{{ page.level | upcase }}</span>
+  </div>
+
+  <h1 class="page-title">
+    <span class="lang-en">{{ page.title_en }}</span>
+    <span class="lang-es">{{ page.title_es }}</span>
+  </h1>
+  {% if page.lead_en and page.lead_es %}
+    <p class="page-lead">
+      <span class="lang-en">{{ page.lead_en }}</span>
+      <span class="lang-es">{{ page.lead_es }}</span>
+    </p>
+  {% endif %}
+</header>
+
+<div class="topic-content">
+  {{ content }}
+</div>
+

@@ -1,55 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-  <div class="container">
-    <!-- Logo -->
-    <a class="navbar-brand fw-bold" href="/">
-      <span class="text-primary">PowerUp</span> English
-    </a>
+<header class="site-header">
+  <div class="header-container">
+    <div class="header-left">
+      <button id="sidebar-toggle-btn" class="sidebar-toggle-btn" aria-label="Abrir menú / Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
 
-    <!-- Botón móvil -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <a href="{{ '/' | relative_url }}" class="brand-logo" title="PowerUpEnglish Home">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <span>PowerUp<span class="accent">English</span></span>
+      </a>
+    </div>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="/">Home</a>
-        </li>
-        <!-- Ejemplo de enlace a un listado general -->
-        <li class="nav-item">
-          <a class="nav-link" href="/lecciones/{{ page.lang }}/A1/">Cursos A1</a>
-        </li>
-      </ul>
+    <div class="header-right">
+      <!-- CEFR Level Navigation (A1 to C2) -->
+      <nav class="level-nav" aria-label="CEFR Levels">
+        <ul class="level-nav-list">
+          <li><a href="{{ '/a1/who-am-i.html' | relative_url }}" class="level-nav-link {% if page.level == 'a1' %}active{% endif %}" data-level="a1" title="Level A1">A1</a></li>
+          <li><a href="{{ '/a2/descriptions.html' | relative_url }}" class="level-nav-link {% if page.level == 'a2' %}active{% endif %}" data-level="a2" title="Level A2">A2</a></li>
+          <li><a href="{{ '/b1/jobs.html' | relative_url }}" class="level-nav-link {% if page.level == 'b1' %}active{% endif %}" data-level="b1" title="Level B1">B1</a></li>
+          <li><a href="{{ '/b2/science-and-technology.html' | relative_url }}" class="level-nav-link {% if page.level == 'b2' %}active{% endif %}" data-level="b2" title="Level B2">B2</a></li>
+          <li><a href="{{ '/c1/politics-and-diplomacy.html' | relative_url }}" class="level-nav-link {% if page.level == 'c1' %}active{% endif %}" data-level="c1" title="Level C1">C1</a></li>
+          <li><a href="{{ '/c2/close-synonyms.html' | relative_url }}" class="level-nav-link {% if page.level == 'c2' %}active{% endif %}" data-level="c2" title="Level C2">C2</a></li>
+        </ul>
+      </nav>
 
-      <!-- Selector de Idioma (Lógica de espejo) -->
-      <div class="d-flex align-items-center">
-        {% if page.ref %}
-          <div class="btn-group btn-group-sm" role="group" aria-label="Language selector">
-            {% assign equivalents = site.lecciones | where: "ref", page.ref %}
-            {% for eq in equivalents %}
-              <a href="{{ eq.url }}" 
-                 class="btn {% if eq.lang == page.lang %}btn-primary{% else %}btn-outline-light{% endif %}">
-                {{ eq.lang | upcase }}
-              </a>
-            {% endfor %}
-          </div>
-        {% else %}
-          <!-- Si no es una lección (ej. Home), ponemos enlaces fijos -->
-          <a href="/es/" class="btn btn-sm btn-outline-light me-1">ES</a>
-          <a href="/en/" class="btn btn-sm btn-outline-light">EN</a>
-        {% endif %}
-      </div>
+      <!-- Language Swap Button (Always Visible) -->
+      <button id="header-lang-swap-btn" class="lang-swap-btn" aria-label="Cambiar idioma / Swap language" title="Cambiar idioma / Switch language">
+        <span class="lang-en"><strong style="color: var(--primary);">EN</strong> - ES</span>
+        <span class="lang-es">EN - <strong style="color: var(--primary);">ES</strong></span>
+      </button>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- Sub-header opcional para navegación de niveles (solo si estás en una lección) -->
-{% if page.collection == 'lecciones' %}
-<div class="bg-light border-bottom py-2 d-lg-none">
-  <div class="container">
-    <button class="btn btn-sm btn-secondary w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMobile">
-      Ver lecciones de {{ page.nivel }}
-    </button>
-  </div>
-</div>
-{% endif %}

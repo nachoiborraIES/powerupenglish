@@ -1,35 +1,24 @@
-title: PowerUp English
+title: PowerUpEnglish
 email: info@powerupenglish.com
-description: Aprende inglés nivel a nivel.
-
-url: "https://powerupenglish.com" # Tu dominio final
+description: >-
+  Recursos para aprender inglés organizados por niveles (A1-C2): vocabulario, gramática, uso del idioma y ejercicios.
+  Resources to learn English organized by CEFR levels (A1-C2): vocabulary, grammar, use of English, and exercises.
+url: "https://powerupenglish.com"
 baseurl: ""
 
-collections:
-  lecciones:
-    output: true
-    # La URL quedará como: /es/A1/past-simple/ o /en/A1/past-simple/
-    permalink: /:path/
-
-defaults:
-  - scope:
-      path: "_lecciones/es"
-    values:
-      lang: "es"
-  - scope:
-      path: "_lecciones/en"
-    values:
-      lang: "en"
-
+# Markdown & formatting
 markdown: kramdown
-highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
-# Excluir archivos de procesamiento innecesario
+# Excludes
 exclude:
+  - preview.py
+  - README.md
+  - agents.md
+  - menu.md
+  - CNAME
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor
-  - .sass-cache
-  - .jekyll-cache
-  - .jekyll-metadata
+
