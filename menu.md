@@ -4,43 +4,138 @@ A continuación se muestra el menú lateral que debería aparecer para cada nive
 
 ## Nivel A1
 
-1. ¿Quién soy yo? / Who am I? (Vocabulary)
-2. Ser y estar / To be (Grammar)
-3. Las oraciones / Sentences (Use of English)
-4. Ejercicios iniciales / Initial exercises (Exercises)
-5. La casa y los muebles / House and furniture (Vocabulary)
+### Vocabulario / Vocabulary
+
+* ¿Quién soy yo? / Who am I?
+* La familia / Family
+* Sentimientos / Feelings
+* La casa y los muebles / House and furniture
+* Días de la semana y horas / Days of the week and hours
+* Verbos de acción cotidianos / Everyday action verbs
+* Comida / Food
+* Ropa / Clothes
+* Tiendas y lugares de la ciudad / Shops and city places
+* Ocio y aficiones / Leisure and hobbies
+* Clima / Weather
+* Adjetivos básicos y posición / Basic adjectives and position 
+
+### Gramática / Grammar
+
+* El verbo "to be" / Verb "to be"
+* Sujetos / Subjects
+* Posesivos / Possessives
+* Artículos y demostrativos / Articles and demonstratives
+* Existencia y cantidad / Existence and quantity
+* Presente simple / Present simple
+* Presente continuo / Present continuous
+* Pasado simple (parte I) / Past simple (part I)
+* Imperativo / Imperative
+* Hábitos / Habits
+* El plural / Plural
+* Me gusta, no me gusta / Like, don't like
+* Yo puedo / I can
+* Yo tengo / I have
+
+### Uso del idioma / Use of English
+
+* Estructura de la oración / Sentence structure
+* Preposiciones de lugar / Prepositions of place
+* Preposiciones de tiempo / Prepositions of time
+* Preguntas y respuestas / Questions and answers
+* Conectores / Connectors
+* Cuantitativos / Quantitatives
+
+### Ejercicios / Exercises
+
+* Ejercicios de repaso 1 / Review exercises 1
 
 ## Nivel A2
 
-1. Descripciones / Descriptions (Vocabulary)
-2. Pasado simple y continuo / Past simple and past continuous (Grammar)
-3. Conectores / Connectors (Use of English)
-4. Ejercicios iniciales / Initial exercises (Exercises)
+### Vocabulario / Vocabulary
+
+* Descripciones / Descriptions
+
+### Gramática / Grammar
+
+* Pasado simple (parte II) / Past simple (part II)
+* Pasado continuo / Past continuous
+
+### Uso del idioma / Use of English
+
+* Conectores / Connectors
+
+### Ejercicios / Exercises
+
+* Ejercicios de repaso 1 / Review exercises 1
 
 ## Nivel B1
 
-1. Las profesiones / Jobs (Vocabulary)
-2. Combinar tiempos pasados / Combining past tenses (Grammar)
-3. Phrasal verbs frecuentes / Common phrasal verbs (Use of English)
-4. Ejercicios iniciales / Initial exercises (Exercises)
+### Vocabulario / Vocabulary
+
+* Las profesiones / Jobs
+
+### Gramática / Grammar
+
+* Combinar tiempos pasados / Combining past tenses
+
+### Uso del idioma / Use of English
+
+* Phrasal verbs frecuentes / Common phrasal verbs
+
+### Ejercicios / Exercises
+
+* Ejercicios de repaso 1 / Review exercises 1
 
 ## Nivel B2
 
-1. Ciencia y tecnología / Science and technology (Vocabulary)
-2. Tiempos pasados avanzados / Advanced past tenses (Grammar)
-3. Phrasal verbs avanzados / Advanced phrasal verbs (Use of English)
-4. Ejercicios iniciales / Initial exercises (Exercises)
+### Vocabulario / Vocabulary
+
+* Ciencia y tecnología / Science and technology
+
+### Gramática / Grammar
+
+* Tiempos pasados avanzados / Advanced past tenses
+
+### Uso del idioma / Use of English
+
+* Phrasal verbs avanzados / Advanced phrasal verbs
+
+### Ejercicios / Exercises
+
+* Ejercicios de repaso 1 / Review exercises 1
 
 ## Nivel C1
 
-1. Política y diplomacia / Politics and diplomacy (Vocabulary)
-2. Inversión gramatical / Grammatical inversion (Grammar)
-3. Nominalización / Nominalisation (Use of English)
-4. Ejercicios iniciales / Initial exercises (Exercises)
+### Vocabulario / Vocabulary
+
+* Política y diplomacia / Politics and diplomacy
+
+### Gramática / Grammar
+
+* Inversión gramatical / Grammatical inversion
+
+### Uso del idioma / Use of English
+
+* Nominalización / Nominalisation
+
+### Ejercicios / Exercises
+
+* Ejercicios de repaso 1 / Review exercises 1
 
 ## Nivel C2
 
-1. Sinónimos cercanos / Close synonyms (Vocabulary)
-2. Condicionales complejos / Complex conditionals (Grammar)
-3. Variedades dialectales / Dialectal varieties (Use of English)
-4. Ejercicios iniciales / Initial exercises (Exercises)
+### Vocabulario / Vocabulary
+
+* Sinónimos cercanos / Close synonyms
+
+### Gramática / Grammar
+
+* Condicionales complejos / Complex conditionals
+
+### Uso del idioma / Use of English
+
+* Variedades dialectales / Dialectal varieties (Use of English)
+
+### Ejercicios / Exercises
+
+* Ejercicios de repaso 1 / Review exercises 1

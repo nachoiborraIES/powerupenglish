@@ -39,8 +39,8 @@
 
   /* Layout dimensions */
   --header-height: 70px;
-  --sidebar-width: 320px;
-  --max-content-width: 1040px;
+  --sidebar-width: 280px;
+  --max-content-width: 1280px;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -125,10 +125,10 @@ body.lang-es .lang-en {
 }
 
 .header-container {
-  max-width: 1440px;
+  max-width: 1600px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -254,7 +254,7 @@ body.lang-es .lang-en {
 .site-body {
   display: flex;
   flex: 1;
-  max-width: 1440px;
+  max-width: 1600px;
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -441,7 +441,7 @@ body.lang-es .lang-en {
    ========================================================================== */
 .site-main {
   flex: 1;
-  padding: 2.5rem 3rem;
+  padding: 2rem 1.5rem;
   max-width: var(--max-content-width);
   margin: 0 auto;
   width: 100%;
@@ -926,12 +926,12 @@ body.lang-es .lang-en {
   background-color: #0f172a;
   color: #94a3b8;
   border-top: 1px solid #1e293b;
-  padding: 2.5rem 1.5rem;
+  padding: 2.5rem 1rem;
   margin-top: auto;
 }
 
 .footer-container {
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   align-items: center;
