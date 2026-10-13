@@ -1,0 +1,1004 @@
+---
+layout: topic
+title: Irregular verbs
+title_en: Irregular verbs
+title_es: Verbos irregulares
+level: a2
+category: grammar
+lead_en: Complete list of common English irregular verbs with pronunciation and an interactive memory test.
+lead_es: Lista completa de verbos irregulares comunes en inglés con pronunciación y test interactivo de memoria.
+permalink: /a2/irregular-verbs.html
+---
+
+<style>
+  .verbs-search-box { margin-bottom: 1.25rem; display: flex; gap: 0.75rem; align-items: center; }
+  .verbs-search-input { width: 100%; max-width: 360px; padding: 0.55rem 0.9rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; background: var(--bg-card); color: var(--text-main); outline: none; }
+  .verbs-search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); }
+  .table-responsive-wrapper { max-height: 520px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 1.5rem; }
+  .table-responsive-wrapper table { margin-bottom: 0; }
+  .table-responsive-wrapper thead th { position: sticky; top: 0; background: #f1f5f9; z-index: 2; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .exercise-section { margin-top: 2.5rem; padding-top: 2rem; border-top: 2px dashed var(--border-color); }
+  .exercise-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; max-width: 540px; margin: 1.5rem auto; box-shadow: var(--shadow-md); text-align: center; }
+  .exercise-hidden { display: none !important; }
+  .exercise-card h3 { margin-top: 0; margin-bottom: 0.75rem; color: var(--text-main); }
+  .exercise-card p { color: var(--text-muted); margin-bottom: 1.25rem; }
+  .exercise-card .verb-heading { font-size: 1.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+  .exercise-card .review-details { text-align: left; background: var(--bg-page); padding: 1rem 1.25rem; border-radius: 8px; margin-bottom: 1.25rem; }
+  .exercise-card .review-details p { margin: 0.35rem 0; color: var(--text-main); font-size: 1rem; }
+  .exercise-card .form-group { text-align: left; margin-bottom: 0.9rem; }
+  .exercise-card label { display: block; font-weight: 600; font-size: 0.85rem; color: var(--text-main); margin-bottom: 0.3rem; }
+  .exercise-card .form-input { width: 100%; padding: 0.55rem 0.85rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem; color: var(--text-main); background: #fff; outline: none; }
+  .exercise-card .form-input:disabled { background: #f1f5f9; color: #475569; font-weight: 600; }
+  .exercise-card .form-input.is-valid { border-color: #10b981; background-color: #ecfdf5; }
+  .exercise-card .form-input.is-invalid { border-color: #ef4444; background-color: #fef2f2; }
+  .exercise-btn-group { display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.25rem; }
+  .exercise-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; border: 1px solid transparent; text-decoration: none; }
+  .exercise-btn-primary { background: var(--primary); color: #fff; }
+  .exercise-btn-primary:hover { background: var(--primary-hover); }
+  .exercise-btn-success { background: #059669; color: #fff; }
+  .exercise-btn-secondary { background: #f1f5f9; color: #334155; border-color: var(--border-color); }
+  .exercise-btn-w100 { width: 100%; }
+  .exercise-progress-container { max-width: 540px; height: 8px; background: #e2e8f0; border-radius: 999px; margin: 0 auto 1.5rem auto; overflow: hidden; }
+  .exercise-progress-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s ease; }
+  .exercise-alert { padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600; margin-top: 1rem; font-size: 0.95rem; text-align: center; }
+  .exercise-alert-success { background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .exercise-alert-danger { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+  .score-display { font-size: 3.5rem; font-weight: 800; color: var(--primary); line-height: 1; margin: 1rem 0; }
+</style>
+
+<div class="content-card">
+  <h2>
+    <span class="lang-en">English Irregular Verbs List</span>
+    <span class="lang-es">Lista de Verbos Irregulares en Inglés</span>
+  </h2>
+
+  <p class="lang-en">
+    Unlike regular verbs that add <em>-ed</em> for the past and participle forms, irregular verbs have unique forms that must be memorized. Below you will find the most frequent irregular verbs in English. You can listen to the pronunciation of every English form by clicking its speaker icon. At the bottom, try the interactive memory test to practise!
+  </p>
+  <p class="lang-es">
+    A diferencia de los verbos regulares que forman el pasado y participio añadiendo <em>-ed</em>, los verbos irregulares tienen formas únicas que es necesario memorizar. A continuación encontrarás los verbos irregulares más frecuentes en inglés. Puedes escuchar la pronunciación de cada forma en inglés pulsando en el icono del altavoz. ¡Al final de la página puedes practicar con el ejercicio interactivo para poner a prueba tu memoria!
+  </p>
+
+  <div class="verbs-search-box">
+    <input type="text" id="verb-search" class="verbs-search-input" placeholder="Search verb / Buscar verbo..." oninput="filtrarVerbos()">
+  </div>
+
+  <div class="table-responsive-wrapper">
+    <table class="dual-lang-table" id="verbs-table">
+      <thead>
+        <tr>
+          <th>Infinitive / Infinitivo</th>
+          <th>Past simple / Pasado</th>
+          <th>Past participle / Participio</th>
+          <th>Spanish meaning / Significado</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><strong>be</strong></td>
+        <td>was/were</td>
+        <td>been</td>
+        <td>ser/estar</td>
+      </tr>
+      <tr>
+        <td><strong>beat</strong></td>
+        <td>beat</td>
+        <td>beaten</td>
+        <td>golpear</td>
+      </tr>
+      <tr>
+        <td><strong>become</strong></td>
+        <td>became</td>
+        <td>become</td>
+        <td>llegar a ser</td>
+      </tr>
+      <tr>
+        <td><strong>begin</strong></td>
+        <td>began</td>
+        <td>begun</td>
+        <td>empezar</td>
+      </tr>
+      <tr>
+        <td><strong>bite</strong></td>
+        <td>bit</td>
+        <td>bitten</td>
+        <td>morder</td>
+      </tr>
+      <tr>
+        <td><strong>blow</strong></td>
+        <td>blew</td>
+        <td>blown</td>
+        <td>soplar</td>
+      </tr>
+      <tr>
+        <td><strong>break</strong></td>
+        <td>broke</td>
+        <td>broken</td>
+        <td>romper</td>
+      </tr>
+      <tr>
+        <td><strong>bring</strong></td>
+        <td>brought</td>
+        <td>brought</td>
+        <td>traer</td>
+      </tr>
+      <tr>
+        <td><strong>burn</strong></td>
+        <td>burnt/burned</td>
+        <td>burnt/burned</td>
+        <td>quemar</td>
+      </tr>
+      <tr>
+        <td><strong>build</strong></td>
+        <td>built</td>
+        <td>built</td>
+        <td>construir</td>
+      </tr>
+      <tr>
+        <td><strong>buy</strong></td>
+        <td>bought</td>
+        <td>bought</td>
+        <td>comprar</td>
+      </tr>
+      <tr>
+        <td><strong>can</strong></td>
+        <td>could</td>
+        <td></td>
+        <td>poder</td>
+      </tr>
+      <tr>
+        <td><strong>catch</strong></td>
+        <td>caught</td>
+        <td>caught</td>
+        <td>atrapar</td>
+      </tr>
+      <tr>
+        <td><strong>choose</strong></td>
+        <td>chose</td>
+        <td>chosen</td>
+        <td>elegir</td>
+      </tr>
+      <tr>
+        <td><strong>come</strong></td>
+        <td>came</td>
+        <td>come</td>
+        <td>venir</td>
+      </tr>
+      <tr>
+        <td><strong>cost</strong></td>
+        <td>cost</td>
+        <td>cost</td>
+        <td>costar</td>
+      </tr>
+      <tr>
+        <td><strong>cut</strong></td>
+        <td>cut</td>
+        <td>cut</td>
+        <td>cortar</td>
+      </tr>
+      <tr>
+        <td><strong>dig</strong></td>
+        <td>dug</td>
+        <td>dug</td>
+        <td>cavar</td>
+      </tr>
+      <tr>
+        <td><strong>do</strong></td>
+        <td>did</td>
+        <td>done</td>
+        <td>hacer</td>
+      </tr>
+      <tr>
+        <td><strong>draw</strong></td>
+        <td>drew</td>
+        <td>drawn</td>
+        <td>dibujar</td>
+      </tr>
+      <tr>
+        <td><strong>dream</strong></td>
+        <td>dreamt/dreamed</td>
+        <td>dreamt/dreamed</td>
+        <td>soñar</td>
+      </tr>
+      <tr>
+        <td><strong>drink</strong></td>
+        <td>drank</td>
+        <td>drunk</td>
+        <td>beber</td>
+      </tr>
+      <tr>
+        <td><strong>drive</strong></td>
+        <td>drove</td>
+        <td>driven</td>
+        <td>conducir</td>
+      </tr>
+      <tr>
+        <td><strong>eat</strong></td>
+        <td>ate</td>
+        <td>eaten</td>
+        <td>comer</td>
+      </tr>
+      <tr>
+        <td><strong>fall</strong></td>
+        <td>fell</td>
+        <td>fallen</td>
+        <td>caer</td>
+      </tr>
+      <tr>
+        <td><strong>feed</strong></td>
+        <td>fed</td>
+        <td>fed</td>
+        <td>alimentar</td>
+      </tr>
+      <tr>
+        <td><strong>feel</strong></td>
+        <td>felt</td>
+        <td>felt</td>
+        <td>sentir</td>
+      </tr>
+      <tr>
+        <td><strong>fight</strong></td>
+        <td>fought</td>
+        <td>fought</td>
+        <td>pelear</td>
+      </tr>
+      <tr>
+        <td><strong>find</strong></td>
+        <td>found</td>
+        <td>found</td>
+        <td>encontrar</td>
+      </tr>
+      <tr>
+        <td><strong>fly</strong></td>
+        <td>flew</td>
+        <td>flown</td>
+        <td>volar</td>
+      </tr>
+      <tr>
+        <td><strong>forget</strong></td>
+        <td>forgot</td>
+        <td>forgotten</td>
+        <td>olvidar</td>
+      </tr>
+      <tr>
+        <td><strong>forgive</strong></td>
+        <td>forgave</td>
+        <td>forgiven</td>
+        <td>perdonar</td>
+      </tr>
+      <tr>
+        <td><strong>freeze</strong></td>
+        <td>froze</td>
+        <td>frozen</td>
+        <td>congelar</td>
+      </tr>
+      <tr>
+        <td><strong>get</strong></td>
+        <td>got</td>
+        <td>got</td>
+        <td>obtener</td>
+      </tr>
+      <tr>
+        <td><strong>give</strong></td>
+        <td>gave</td>
+        <td>given</td>
+        <td>dar</td>
+      </tr>
+      <tr>
+        <td><strong>go</strong></td>
+        <td>went</td>
+        <td>gone</td>
+        <td>ir</td>
+      </tr>
+      <tr>
+        <td><strong>grow</strong></td>
+        <td>grew</td>
+        <td>grown</td>
+        <td>crecer</td>
+      </tr>
+      <tr>
+        <td><strong>hang</strong></td>
+        <td>hung</td>
+        <td>hung</td>
+        <td>colgar</td>
+      </tr>
+      <tr>
+        <td><strong>have</strong></td>
+        <td>had</td>
+        <td>had</td>
+        <td>tener</td>
+      </tr>
+      <tr>
+        <td><strong>hear</strong></td>
+        <td>heard</td>
+        <td>heard</td>
+        <td>oír</td>
+      </tr>
+      <tr>
+        <td><strong>hide</strong></td>
+        <td>hid</td>
+        <td>hidden</td>
+        <td>esconder</td>
+      </tr>
+      <tr>
+        <td><strong>hit</strong></td>
+        <td>hit</td>
+        <td>hit</td>
+        <td>golpear</td>
+      </tr>
+      <tr>
+        <td><strong>hold</strong></td>
+        <td>held</td>
+        <td>held</td>
+        <td>sujetar</td>
+      </tr>
+      <tr>
+        <td><strong>hurt</strong></td>
+        <td>hurt</td>
+        <td>hurt</td>
+        <td>herir</td>
+      </tr>
+      <tr>
+        <td><strong>keep</strong></td>
+        <td>kept</td>
+        <td>kept</td>
+        <td>mantener</td>
+      </tr>
+      <tr>
+        <td><strong>know</strong></td>
+        <td>knew</td>
+        <td>known</td>
+        <td>saber</td>
+      </tr>
+      <tr>
+        <td><strong>lead</strong></td>
+        <td>led</td>
+        <td>led</td>
+        <td>guiar</td>
+      </tr>
+      <tr>
+        <td><strong>learn</strong></td>
+        <td>learnt/learned</td>
+        <td>learnt/learned</td>
+        <td>aprender</td>
+      </tr>
+      <tr>
+        <td><strong>leave</strong></td>
+        <td>left</td>
+        <td>left</td>
+        <td>dejar</td>
+      </tr>
+      <tr>
+        <td><strong>lend</strong></td>
+        <td>lent</td>
+        <td>lent</td>
+        <td>prestar</td>
+      </tr>
+      <tr>
+        <td><strong>let</strong></td>
+        <td>let</td>
+        <td>let</td>
+        <td>permitir</td>
+      </tr>
+      <tr>
+        <td><strong>lie</strong></td>
+        <td>lay</td>
+        <td>lain</td>
+        <td>tumbarse</td>
+      </tr>
+      <tr>
+        <td><strong>light</strong></td>
+        <td>lit</td>
+        <td>lit</td>
+        <td>encender</td>
+      </tr>
+      <tr>
+        <td><strong>lose</strong></td>
+        <td>lost</td>
+        <td>lost</td>
+        <td>perder</td>
+      </tr>
+      <tr>
+        <td><strong>make</strong></td>
+        <td>made</td>
+        <td>made</td>
+        <td>hacer</td>
+      </tr>
+      <tr>
+        <td><strong>mean</strong></td>
+        <td>meant</td>
+        <td>meant</td>
+        <td>significar</td>
+      </tr>
+      <tr>
+        <td><strong>meet</strong></td>
+        <td>met</td>
+        <td>met</td>
+        <td>conocer</td>
+      </tr>
+      <tr>
+        <td><strong>pay</strong></td>
+        <td>paid</td>
+        <td>paid</td>
+        <td>pagar</td>
+      </tr>
+      <tr>
+        <td><strong>put</strong></td>
+        <td>put</td>
+        <td>put</td>
+        <td>poner</td>
+      </tr>
+      <tr>
+        <td><strong>read</strong></td>
+        <td>read</td>
+        <td>read</td>
+        <td>leer</td>
+      </tr>
+      <tr>
+        <td><strong>ride</strong></td>
+        <td>rode</td>
+        <td>ridden</td>
+        <td>montar</td>
+      </tr>
+      <tr>
+        <td><strong>ring</strong></td>
+        <td>rang</td>
+        <td>rung</td>
+        <td>sonar</td>
+      </tr>
+      <tr>
+        <td><strong>rise</strong></td>
+        <td>rose</td>
+        <td>risen</td>
+        <td>elevarse</td>
+      </tr>
+      <tr>
+        <td><strong>run</strong></td>
+        <td>ran</td>
+        <td>run</td>
+        <td>correr</td>
+      </tr>
+      <tr>
+        <td><strong>say</strong></td>
+        <td>said</td>
+        <td>said</td>
+        <td>decir</td>
+      </tr>
+      <tr>
+        <td><strong>see</strong></td>
+        <td>saw</td>
+        <td>seen</td>
+        <td>ver</td>
+      </tr>
+      <tr>
+        <td><strong>sell</strong></td>
+        <td>sold</td>
+        <td>sold</td>
+        <td>vender</td>
+      </tr>
+      <tr>
+        <td><strong>send</strong></td>
+        <td>sent</td>
+        <td>sent</td>
+        <td>enviar</td>
+      </tr>
+      <tr>
+        <td><strong>set</strong></td>
+        <td>set</td>
+        <td>set</td>
+        <td>establecer</td>
+      </tr>
+      <tr>
+        <td><strong>shake</strong></td>
+        <td>shook</td>
+        <td>shaken</td>
+        <td>sacudir</td>
+      </tr>
+      <tr>
+        <td><strong>shine</strong></td>
+        <td>shone</td>
+        <td>shone</td>
+        <td>brillar</td>
+      </tr>
+      <tr>
+        <td><strong>shoot</strong></td>
+        <td>shot</td>
+        <td>shot</td>
+        <td>disparar</td>
+      </tr>
+      <tr>
+        <td><strong>show</strong></td>
+        <td>showed</td>
+        <td>shown</td>
+        <td>mostrar</td>
+      </tr>
+      <tr>
+        <td><strong>shut</strong></td>
+        <td>shut</td>
+        <td>shut</td>
+        <td>cerrar</td>
+      </tr>
+      <tr>
+        <td><strong>sing</strong></td>
+        <td>sang</td>
+        <td>sung</td>
+        <td>cantar</td>
+      </tr>
+      <tr>
+        <td><strong>sit</strong></td>
+        <td>sat</td>
+        <td>sat</td>
+        <td>sentarse</td>
+      </tr>
+      <tr>
+        <td><strong>sleep</strong></td>
+        <td>slept</td>
+        <td>slept</td>
+        <td>dormir</td>
+      </tr>
+      <tr>
+        <td><strong>speak</strong></td>
+        <td>spoke</td>
+        <td>spoken</td>
+        <td>hablar</td>
+      </tr>
+      <tr>
+        <td><strong>spend</strong></td>
+        <td>spent</td>
+        <td>spent</td>
+        <td>gastar</td>
+      </tr>
+      <tr>
+        <td><strong>stand</strong></td>
+        <td>stood</td>
+        <td>stood</td>
+        <td>estar de pie</td>
+      </tr>
+      <tr>
+        <td><strong>steal</strong></td>
+        <td>stole</td>
+        <td>stolen</td>
+        <td>robar</td>
+      </tr>
+      <tr>
+        <td><strong>swim</strong></td>
+        <td>swam</td>
+        <td>swum</td>
+        <td>nadar</td>
+      </tr>
+      <tr>
+        <td><strong>take</strong></td>
+        <td>took</td>
+        <td>taken</td>
+        <td>tomar</td>
+      </tr>
+      <tr>
+        <td><strong>teach</strong></td>
+        <td>taught</td>
+        <td>taught</td>
+        <td>enseñar</td>
+      </tr>
+      <tr>
+        <td><strong>tell</strong></td>
+        <td>told</td>
+        <td>told</td>
+        <td>decir</td>
+      </tr>
+      <tr>
+        <td><strong>think</strong></td>
+        <td>thought</td>
+        <td>thought</td>
+        <td>pensar</td>
+      </tr>
+      <tr>
+        <td><strong>throw</strong></td>
+        <td>threw</td>
+        <td>thrown</td>
+        <td>lanzar</td>
+      </tr>
+      <tr>
+        <td><strong>understand</strong></td>
+        <td>understood</td>
+        <td>understood</td>
+        <td>entender</td>
+      </tr>
+      <tr>
+        <td><strong>wake</strong></td>
+        <td>woke</td>
+        <td>woken</td>
+        <td>despertar</td>
+      </tr>
+      <tr>
+        <td><strong>wear</strong></td>
+        <td>wore</td>
+        <td>worn</td>
+        <td>llevar puesto</td>
+      </tr>
+      <tr>
+        <td><strong>win</strong></td>
+        <td>won</td>
+        <td>won</td>
+        <td>ganar</td>
+      </tr>
+      <tr>
+        <td><strong>write</strong></td>
+        <td>wrote</td>
+        <td>written</td>
+        <td>escribir</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exercise-section" id="practice-exercise">
+    <h2 style="text-align: center;">
+      <span class="lang-en">Practice & Memorize</span>
+      <span class="lang-es">Practica y Memoriza</span>
+    </h2>
+    <p style="text-align: center; color: var(--text-muted);">
+      <span class="lang-en">Test your knowledge with 10 random verbs from the list.</span>
+      <span class="lang-es">Pon a prueba tus conocimientos con 10 verbos al azar de la lista.</span>
+    </p>
+
+    <div id="screen-start">
+      <div class="exercise-card">
+        <h3>
+          <span class="lang-en">Ready to Practice?</span>
+          <span class="lang-es">¿Listo para practicar?</span>
+        </h3>
+        <p>
+          <span class="lang-en">10 random irregular verbs will be selected for review and evaluation.</span>
+          <span class="lang-es">Se seleccionarán 10 verbos al azar para repasar y evaluar.</span>
+        </p>
+        <button class="exercise-btn exercise-btn-primary exercise-btn-w100" onclick="iniciarRepaso()">
+          <span class="lang-en">Start Review</span>
+          <span class="lang-es">Iniciar Repaso</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="screen-review" class="exercise-hidden">
+      <div class="exercise-card">
+        <h3>
+          <span class="lang-en">Review Phase</span>
+          <span class="lang-es">Fase de Repaso</span>
+        </h3>
+        <div id="review-container"></div>
+        <div class="exercise-btn-group">
+          <button id="btn-prev" class="exercise-btn exercise-btn-secondary" onclick="cambiarRepaso(-1)">
+            <span class="lang-en">Previous</span>
+            <span class="lang-es">Anterior</span>
+          </button>
+          <button id="btn-next" class="exercise-btn exercise-btn-secondary" onclick="cambiarRepaso(1)">
+            <span class="lang-en">Next</span>
+            <span class="lang-es">Siguiente</span>
+          </button>
+          <button id="btn-start-test" class="exercise-btn exercise-btn-success exercise-hidden" onclick="iniciarTest()">
+            <span class="lang-en">Start Test!</span>
+            <span class="lang-es">¡Empezar Test!</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="screen-test" class="exercise-hidden">
+      <div class="exercise-progress-container">
+        <div id="progress-bar" class="exercise-progress-bar"></div>
+      </div>
+
+      <div class="exercise-card">
+        <h3>
+          <span class="lang-en">Complete the verb</span>
+          <span class="lang-es">Completa el verbo</span>
+          (<span id="test-index">1</span>/10)
+        </h3>
+        
+        <div class="form-group">
+          <label for="input-0">Infinitivo / Infinitive</label>
+          <input type="text" id="input-0" class="form-input" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="form-group">
+          <label for="input-1">Pasado Simple / Past Simple</label>
+          <input type="text" id="input-1" class="form-input" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="form-group">
+          <label for="input-2">Participio / Past Participle</label>
+          <input type="text" id="input-2" class="form-input" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="form-group">
+          <label for="input-3">Significado (Español)</label>
+          <input type="text" id="input-3" class="form-input" autocomplete="off" spellcheck="false">
+        </div>
+
+        <div id="feedback" class="exercise-alert exercise-hidden"></div>
+
+        <div style="margin-top: 1.25rem;">
+          <button id="btn-check" class="exercise-btn exercise-btn-primary exercise-btn-w100" onclick="validarVerbo()">
+            <span class="lang-en">Check Answer</span>
+            <span class="lang-es">Comprobar</span>
+          </button>
+          <button id="btn-next-verb" class="exercise-btn exercise-btn-secondary exercise-btn-w100 exercise-hidden" onclick="siguienteVerbo()">
+            <span class="lang-en">Next Verb &rarr;</span>
+            <span class="lang-es">Siguiente Verbo &rarr;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="screen-results" class="exercise-hidden">
+      <div class="exercise-card">
+        <div class="score-display" id="final-score">0/10</div>
+        <h3 id="final-message">¡Buen trabajo!</h3>
+        <p id="final-stats"></p>
+        <button class="exercise-btn exercise-btn-primary" onclick="reiniciarEjercicio()">
+          <span class="lang-en">Restart Exercise</span>
+          <span class="lang-es">Reiniciar Ejercicio</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const verbosBase = [
+['be', 'was/were', 'been', 'ser/estar'],
+        ['beat', 'beat', 'beaten', 'golpear'],
+        ['become', 'became', 'become', 'llegar a ser'],
+        ['begin', 'began', 'begun', 'empezar'],
+        ['bite', 'bit', 'bitten', 'morder'],
+        ['blow', 'blew', 'blown', 'soplar'],
+        ['break', 'broke', 'broken', 'romper'],
+        ['bring', 'brought', 'brought', 'traer'],
+        ['burn', 'burnt/burned', 'burnt/burned', 'quemar'],
+        ['build', 'built', 'built', 'construir'],
+        ['buy', 'bought', 'bought', 'comprar'],
+        ['can', 'could', '', 'poder'],
+        ['catch', 'caught', 'caught', 'atrapar'],
+        ['choose', 'chose', 'chosen', 'elegir'],
+        ['come', 'came', 'come', 'venir'],
+        ['cost', 'cost', 'cost', 'costar'],
+        ['cut', 'cut', 'cut', 'cortar'],
+        ['dig', 'dug', 'dug', 'cavar'],
+        ['do', 'did', 'done', 'hacer'],
+        ['draw', 'drew', 'drawn', 'dibujar'],
+        ['dream', 'dreamt/dreamed', 'dreamt/dreamed', 'soñar'],
+        ['drink', 'drank', 'drunk', 'beber'],
+        ['drive', 'drove', 'driven', 'conducir'],
+        ['eat', 'ate', 'eaten', 'comer'],
+        ['fall', 'fell', 'fallen', 'caer'],
+        ['feed', 'fed', 'fed', 'alimentar'],
+        ['feel', 'felt', 'felt', 'sentir'],
+        ['fight', 'fought', 'fought', 'pelear'],
+        ['find', 'found', 'found', 'encontrar'],
+        ['fly', 'flew', 'flown', 'volar'],
+        ['forget', 'forgot', 'forgotten', 'olvidar'],
+        ['forgive', 'forgave', 'forgiven', 'perdonar'],
+        ['freeze', 'froze', 'frozen', 'congelar'],
+        ['get', 'got', 'got', 'obtener'],
+        ['give', 'gave', 'given', 'dar'],
+        ['go', 'went', 'gone', 'ir'],
+        ['grow', 'grew', 'grown', 'crecer'],
+        ['hang', 'hung', 'hung', 'colgar'],
+        ['have', 'had', 'had', 'tener'],
+        ['hear', 'heard', 'heard', 'oír'],
+        ['hide', 'hid', 'hidden', 'esconder'],
+        ['hit', 'hit', 'hit', 'golpear'],
+        ['hold', 'held', 'held', 'sujetar'],
+        ['hurt', 'hurt', 'hurt', 'herir'],
+        ['keep', 'kept', 'kept', 'mantener'],
+        ['know', 'knew', 'known', 'saber'],
+        ['lead', 'led', 'led', 'guiar'],
+        ['learn', 'learnt/learned', 'learnt/learned', 'aprender'],
+        ['leave', 'left', 'left', 'dejar'],
+        ['lend', 'lent', 'lent', 'prestar'],
+        ['let', 'let', 'let', 'permitir'],
+        ['lie', 'lay', 'lain', 'tumbarse'],
+        ['light', 'lit', 'lit', 'encender'],
+        ['lose', 'lost', 'lost', 'perder'],
+        ['make', 'made', 'made', 'hacer'],
+        ['mean', 'meant', 'meant', 'significar'],
+        ['meet', 'met', 'met', 'conocer'],
+        ['pay', 'paid', 'paid', 'pagar'],
+        ['put', 'put', 'put', 'poner'],
+        ['read', 'read', 'read', 'leer'],
+        ['ride', 'rode', 'ridden', 'montar'],
+        ['ring', 'rang', 'rung', 'sonar'],
+        ['rise', 'rose', 'risen', 'elevarse'],
+        ['run', 'ran', 'run', 'correr'],
+        ['say', 'said', 'said', 'decir'],
+        ['see', 'saw', 'seen', 'ver'],
+        ['sell', 'sold', 'sold', 'vender'],
+        ['send', 'sent', 'sent', 'enviar'],
+        ['set', 'set', 'set', 'establecer'],
+        ['shake', 'shook', 'shaken', 'sacudir'],
+        ['shine', 'shone', 'shone', 'brillar'],
+        ['shoot', 'shot', 'shot', 'disparar'],
+        ['show', 'showed', 'shown', 'mostrar'],
+        ['shut', 'shut', 'shut', 'cerrar'],
+        ['sing', 'sang', 'sung', 'cantar'],
+        ['sit', 'sat', 'sat', 'sentarse'],
+        ['sleep', 'slept', 'slept', 'dormir'],
+        ['speak', 'spoke', 'spoken', 'hablar'],
+        ['spend', 'spent', 'spent', 'gastar'],
+        ['stand', 'stood', 'stood', 'estar de pie'],
+        ['steal', 'stole', 'stolen', 'robar'],
+        ['swim', 'swam', 'swum', 'nadar'],
+        ['take', 'took', 'taken', 'tomar'],
+        ['teach', 'taught', 'taught', 'enseñar'],
+        ['tell', 'told', 'told', 'decir'],
+        ['think', 'thought', 'thought', 'pensar'],
+        ['throw', 'threw', 'thrown', 'lanzar'],
+        ['understand', 'understood', 'understood', 'entender'],
+        ['wake', 'woke', 'woken', 'despertar'],
+        ['wear', 'wore', 'worn', 'llevar puesto'],
+        ['win', 'won', 'won', 'ganar'],
+        ['write', 'wrote', 'written', 'escribir']
+  ];
+
+  let verbosSeleccionados = [];
+  let indiceActual = 0;
+  let aciertos = 0;
+  let pistaIndex = 0;
+
+  function filtrarVerbos() {
+    const query = (document.getElementById("verb-search").value || "").toLowerCase().trim();
+    const rows = document.querySelectorAll("#verbs-table tbody tr");
+    rows.forEach(r => {
+      const text = r.textContent.toLowerCase();
+      r.style.display = text.includes(query) ? "" : "none";
+    });
+  }
+
+  function showScreen(id) {
+    ["screen-start", "screen-review", "screen-test", "screen-results"].forEach(s => {
+      const el = document.getElementById(s);
+      if (el) el.classList.add("exercise-hidden");
+    });
+    const target = document.getElementById(id);
+    if (target) target.classList.remove("exercise-hidden");
+  }
+
+  function iniciarRepaso() {
+    verbosSeleccionados = [...verbosBase].sort(() => 0.5 - Math.random()).slice(0, 10);
+    indiceActual = 0;
+    renderReview();
+    showScreen("screen-review");
+    const ex = document.getElementById("practice-exercise");
+    if (ex) ex.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function renderReview() {
+    const v = verbosSeleccionados[indiceActual];
+    const container = document.getElementById("review-container");
+    container.innerHTML = `
+      <div class="verb-heading">${v[0].toUpperCase()}</div>
+      <div class="review-details">
+        <p><strong>Pasado:</strong> ${v[1]}</p>
+        <p><strong>Participio:</strong> ${v[2]}</p>
+        <p><strong>Significado:</strong> ${v[3]}</p>
+      </div>
+      <small style="color: var(--text-muted); font-size: 0.85rem;">Verbo ${indiceActual + 1} de 10</small>
+    `;
+    document.getElementById("btn-prev").disabled = (indiceActual === 0);
+    document.getElementById("btn-next").classList.toggle("exercise-hidden", indiceActual === 9);
+    document.getElementById("btn-start-test").classList.toggle("exercise-hidden", indiceActual !== 9);
+  }
+
+  function cambiarRepaso(delta) {
+    indiceActual += delta;
+    if (indiceActual < 0) indiceActual = 0;
+    if (indiceActual > 9) indiceActual = 9;
+    renderReview();
+  }
+
+  function iniciarTest() {
+    indiceActual = 0;
+    aciertos = 0;
+    verbosSeleccionados = [...verbosSeleccionados].sort(() => 0.5 - Math.random());
+    showScreen("screen-test");
+    prepararPregunta();
+    const ex = document.getElementById("practice-exercise");
+    if (ex) ex.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function prepararPregunta() {
+    const v = verbosSeleccionados[indiceActual];
+    pistaIndex = Math.floor(Math.random() * 4);
+    document.getElementById("test-index").innerText = indiceActual + 1;
+    const feedback = document.getElementById("feedback");
+    feedback.classList.add("exercise-hidden");
+    feedback.className = "exercise-alert exercise-hidden";
+    document.getElementById("btn-check").classList.remove("exercise-hidden");
+    document.getElementById("btn-next-verb").classList.add("exercise-hidden");
+    document.getElementById("progress-bar").style.width = (indiceActual * 10) + "%";
+    for (let i = 0; i < 4; i++) {
+      const input = document.getElementById(`input-${i}`);
+      input.value = (i === pistaIndex) ? v[i] : "";
+      input.disabled = (i === pistaIndex);
+      input.classList.remove("is-valid", "is-invalid");
+    }
+    const firstActive = [0, 1, 2, 3].find(idx => idx !== pistaIndex);
+    if (firstActive !== undefined) {
+      setTimeout(() => {
+        const el = document.getElementById(`input-${firstActive}`);
+        if (el) el.focus();
+      }, 50);
+    }
+  }
+
+  function validarVerbo() {
+    const v = verbosSeleccionados[indiceActual];
+    let esCorrecto = true;
+    for (let i = 0; i < 4; i++) {
+      const input = document.getElementById(`input-${i}`);
+      const val = input.value.trim().toLowerCase();
+      const expected = v[i].toLowerCase();
+      const opciones = expected.split("/").map(s => s.trim());
+      const match = opciones.includes(val) || val === expected;
+      if (!match) {
+        esCorrecto = false;
+        input.classList.add("is-invalid");
+      } else {
+        input.classList.add("is-valid");
+      }
+    }
+    const feedback = document.getElementById("feedback");
+    feedback.classList.remove("exercise-hidden");
+    if (esCorrecto) {
+      aciertos++;
+      feedback.innerText = "¡Correcto! / Correct!";
+      feedback.className = "exercise-alert exercise-alert-success";
+    } else {
+      feedback.innerText = `Solución: ${v[0]} | ${v[1]} | ${v[2]} | ${v[3]}`;
+      feedback.className = "exercise-alert exercise-alert-danger";
+    }
+    document.getElementById("btn-check").classList.add("exercise-hidden");
+    document.getElementById("btn-next-verb").classList.remove("exercise-hidden");
+  }
+
+  function siguienteVerbo() {
+    indiceActual++;
+    if (indiceActual < 10) {
+      prepararPregunta();
+    } else {
+      finalizarTest();
+    }
+  }
+
+  function finalizarTest() {
+    showScreen("screen-results");
+    document.getElementById("progress-bar").style.width = "100%";
+    document.getElementById("final-score").innerText = aciertos + "/10";
+    document.getElementById("final-stats").innerText = `Has acertado ${aciertos} verbos y fallado ${10 - aciertos}.`;
+    const msg = document.getElementById("final-message");
+    if (aciertos === 10) msg.innerText = "¡Perfecto! Eres un genio.";
+    else if (aciertos >= 7) msg.innerText = "¡Muy bien! Casi lo tienes.";
+    else if (aciertos >= 5) msg.innerText = "No está mal, pero sigue practicando.";
+    else msg.innerText = "Necesitas repasar un poco más.";
+    const ex = document.getElementById("practice-exercise");
+    if (ex) ex.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function reiniciarEjercicio() {
+    showScreen("screen-start");
+    const ex = document.getElementById("practice-exercise");
+    if (ex) ex.scrollIntoView({ behavior: "smooth" });
+  }
+
+  [0, 1, 2, 3].forEach(i => {
+    const el = document.getElementById(`input-${i}`);
+    if (el) {
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          const checkBtn = document.getElementById("btn-check");
+          const nextBtn = document.getElementById("btn-next-verb");
+          if (!checkBtn.classList.contains("exercise-hidden")) {
+            validarVerbo();
+          } else if (!nextBtn.classList.contains("exercise-hidden")) {
+            siguienteVerbo();
+          }
+        }
+      });
+    }
+  });
+</script>

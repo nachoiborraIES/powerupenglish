@@ -99,7 +99,11 @@
                         "name_es": "Gramática",
                         "items":
                         [
-
+                            {
+                                "name_en": "Irregular verbs",
+                                "name_es": "Verbos irregulares",
+                                "url": "a2/irregular-verbs.html"
+                            }
                         ]
                     }
                 },
