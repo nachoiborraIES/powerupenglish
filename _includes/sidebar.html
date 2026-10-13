@@ -12,8 +12,9 @@
     <label for="sidebar-level-select" style="display:none;">Level</label>
     <select id="sidebar-level-select" class="sidebar-level-select" aria-label="Seleccionar nivel / Select level">
       {% for lvl in site.data.menu.levels %}
+        {% assign lvl_code = lvl.id | upcase %}
         <option value="{{ lvl.id }}" {% if page.level == lvl.id %}selected{% endif %}>
-          {{ lvl.code }} - {{ lvl.name_en }}
+          {{ lvl_code }} - <span class="lang-en">{{ lvl.name_en }}</span>
         </option>
       {% endfor %}
     </select>
@@ -32,47 +33,101 @@
           <span class="lang-en">{{ lvl.name_en }}</span>
           <span class="lang-es">{{ lvl.name_es }}</span>
         </div>
-        <ul class="sidebar-menu-list">
-          {% for item in lvl.items %}
-            <li class="sidebar-menu-item cat-{{ item.category }} {% if page.url == item.url %}active{% endif %}">
-              <a href="{{ item.url | relative_url }}">
-                <span class="cat-icon-wrap" title="{{ item.category }}">
-                  {% case item.category %}
-                    {% when "vocabulary" %}
-                      <!-- Vocabulary Icon: Book -->
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                      </svg>
-                    {% when "grammar" %}
-                      <!-- Grammar Icon: Pen/Edit -->
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 20h9"></path>
-                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                      </svg>
-                    {% when "use-of-english" %}
-                      <!-- Use of English Icon: Speech Bubbles -->
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                      </svg>
-                    {% when "exercises" %}
-                      <!-- Exercises Icon: Clipboard Check -->
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                        <path d="m9 14 2 2 4-4"></path>
-                      </svg>
-                  {% endcase %}
-                </span>
 
-                <span class="sidebar-link-text">
-                  <span class="lang-en">{{ item.title_en }}</span>
-                  <span class="lang-es">{{ item.title_es }}</span>
-                </span>
-              </a>
-            </li>
+        <div class="sidebar-categories-accordion">
+          {% for cat_obj in lvl.categories %}
+            {% assign cat_key = "" %}
+            {% assign cat_data = nil %}
+            {% if cat_obj.vocabulary %}
+              {% assign cat_key = "vocabulary" %}
+              {% assign cat_data = cat_obj.vocabulary %}
+            {% elsif cat_obj.grammar %}
+              {% assign cat_key = "grammar" %}
+              {% assign cat_data = cat_obj.grammar %}
+            {% elsif cat_obj["use of english"] %}
+              {% assign cat_key = "use-of-english" %}
+              {% assign cat_data = cat_obj["use of english"] %}
+            {% elsif cat_obj.exercises %}
+              {% assign cat_key = "exercises" %}
+              {% assign cat_data = cat_obj.exercises %}
+            {% endif %}
+
+            {% if cat_data %}
+              <details class="sidebar-cat-details cat-{{ cat_key }}">
+                <summary class="sidebar-cat-summary">
+                  <span class="cat-icon-wrap" title="{{ cat_data.name_en }}">
+                    {% case cat_key %}
+                      {% when "vocabulary" %}
+                        <!-- Vocabulary Icon: Book -->
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                      {% when "grammar" %}
+                        <!-- Grammar Icon: Pen/Edit -->
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M12 20h9"></path>
+                          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                        </svg>
+                      {% when "use-of-english" %}
+                        <!-- Use of English Icon: Speech Bubbles -->
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                      {% when "exercises" %}
+                        <!-- Exercises Icon: Clipboard Check -->
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                          <path d="m9 14 2 2 4-4"></path>
+                        </svg>
+                    {% endcase %}
+                  </span>
+
+                  <span class="sidebar-cat-title">
+                    <span class="lang-en">{{ cat_data.name_en }}</span>
+                    <span class="lang-es">{{ cat_data.name_es }}</span>
+                  </span>
+
+                  <span class="cat-chevron-icon" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+
+                {% if cat_data.items.size > 0 %}
+                  <ul class="sidebar-menu-list">
+                    {% for item in cat_data.items %}
+                      {% assign item_raw_url = item.url %}
+                      {% assign first_c = item_raw_url | slice: 0, 1 %}
+                      {% if first_c != "/" and item_raw_url contains "://" == false %}
+                        {% assign item_url = "/" | append: item_raw_url %}
+                      {% else %}
+                        {% assign item_url = item_raw_url %}
+                      {% endif %}
+
+                      <li class="sidebar-menu-item cat-{{ cat_key }} {% if page.url == item_url %}active{% endif %}">
+                        <a href="{{ item_url | relative_url }}">
+                          <span class="sidebar-item-bullet">•</span>
+                          <span class="sidebar-link-text">
+                            <span class="lang-en">{{ item.name_en }}</span>
+                            <span class="lang-es">{{ item.name_es }}</span>
+                          </span>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                  <div class="sidebar-empty-category">
+                    <span class="lang-en">Coming soon...</span>
+                    <span class="lang-es">Próximamente...</span>
+                  </div>
+                {% endif %}
+              </details>
+            {% endif %}
           {% endfor %}
-        </ul>
+        </div>
       </div>
     {% endfor %}
   </nav>

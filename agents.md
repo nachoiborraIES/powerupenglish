@@ -13,7 +13,7 @@ Al elegir un nivel, se abrirá un panel izquierdo vertical con los contenidos de
 * **Use of English**: una página con contenidos sobre el uso del idioma. Por ejemplo, *phrasal verbs* acordes al nivel indicado, etc.
 * **Exercises**: una página con ejercicio(s) sobre los contenidos vistos hasta ese punto. Pueden ser *listenings*, *readings*, *writings*...
 
-El menú de contenidos a mostrar para cada nivel (A1, A2, etc) se define en el fichero `menu.md`, que se irá actualizando más adelante conforme se piensen más contenidos. Los menús también deben poderse ver en dos idiomas. Por defecto aparecerán en inglés, pero pulsando un botón de *swap* o similar se mostrarán los mismos textos pero en español. A continuación se muestra el texto a mostrar en cada enlace, en español y en inglés, junto a qué categoría pertenece cada uno (*Vocabulary*, *Grammar*, *Use of English* o *Exercises*) para que se le añada un icono o marca diferenciadora a cada elemento.
+El menú de contenidos a mostrar para cada nivel (A1, A2, etc) se define en el fichero `menu.json`, que se irá actualizando más adelante conforme se piensen más contenidos. Los menús también deben poderse ver en dos idiomas. Por defecto aparecerán en inglés, pero pulsando un botón de *swap* o similar se mostrarán los mismos textos pero en español. Los menús se dividen en cuatro categorías desplegables (*Vocabulary*, *Grammar*, *Use of English* o *Exercises*), que tendrán un icono identificativo.
 
 ## Comportamiento adicional
 

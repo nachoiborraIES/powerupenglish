@@ -88,13 +88,32 @@ def build_site():
             if cfg:
                 site_config.update(cfg)
 
-    # Load _data
+    # Load _data and menu.json
     site_data = {}
     if DATA_DIR.exists():
         for yml_file in DATA_DIR.glob("*.yml"):
             with open(yml_file, "r", encoding="utf-8") as f:
                 data_content = yaml.load(f)
                 site_data[yml_file.stem] = data_content
+        for json_file in DATA_DIR.glob("*.json"):
+            with open(json_file, "r", encoding="utf-8") as f:
+                import json
+                site_data[json_file.stem] = json.load(f)
+
+    # Check root menu.json (user editable file)
+    root_menu_json = BASE_DIR / "menu.json"
+    if root_menu_json.exists():
+        import json
+        with open(root_menu_json, "r", encoding="utf-8") as f:
+            site_data["menu"] = json.load(f)
+        # Ensure _data/menu.json is in sync for Jekyll GitHub Pages compatibility
+        data_menu_json = DATA_DIR / "menu.json"
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        try:
+            shutil.copyfile(root_menu_json, data_menu_json)
+        except Exception:
+            pass
+
     site_config["data"] = site_data
 
     # Setup Liquid environment

@@ -138,43 +138,91 @@ description: Interactive resources to learn and master English from A1 to C2 wit
 
   <div class="levels-grid">
     {% for lvl in site.data.menu.levels %}
+      {% assign lvl_code = lvl.id | upcase %}
+      {% assign total_items = 0 %}
+      {% assign first_item_url = nil %}
+      {% for cat_obj in lvl.categories %}
+        {% assign cat_data = cat_obj.vocabulary | default: cat_obj.grammar | default: cat_obj["use of english"] | default: cat_obj.exercises %}
+        {% if cat_data and cat_data.items.size > 0 %}
+          {% assign total_items = total_items | plus: cat_data.items.size %}
+          {% if first_item_url == nil %}
+            {% assign raw_first = cat_data.items[0].url %}
+            {% assign f_char = raw_first | slice: 0, 1 %}
+            {% if f_char != "/" and raw_first contains "://" == false %}
+              {% assign first_item_url = "/" | append: raw_first %}
+            {% else %}
+              {% assign first_item_url = raw_first %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
       <div class="level-card">
         <div class="level-card-header">
-          <span class="level-pill">{{ lvl.code }}</span>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">{{ lvl.items.size }} <span class="lang-en">topics</span><span class="lang-es">temas</span></span>
+          <span class="level-pill">{{ lvl_code }}</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">{{ total_items }} <span class="lang-en">topics</span><span class="lang-es">temas</span></span>
         </div>
         <h3 class="level-card-title">
           <span class="lang-en">{{ lvl.name_en }}</span>
           <span class="lang-es">{{ lvl.name_es }}</span>
         </h3>
-        <p class="level-card-desc">
-          <span class="lang-en">{{ lvl.short_desc_en }}</span>
-          <span class="lang-es">{{ lvl.short_desc_es }}</span>
-        </p>
 
         <ul class="level-card-topics-list">
-          {% for item in lvl.items limit:3 %}
-            <li>
-              <a href="{{ item.url | relative_url }}">
-                <span class="cat-tag-pill cat-tag-{{ item.category }}" style="font-size: 0.65rem;">
-                  {{ item.category }}
-                </span>
-                <span class="lang-en">{{ item.title_en }}</span>
-                <span class="lang-es">{{ item.title_es }}</span>
-              </a>
-            </li>
+          {% assign displayed = 0 %}
+          {% for cat_obj in lvl.categories %}
+            {% assign cat_k = "" %}
+            {% if cat_obj.vocabulary %}{% assign cat_k = "vocabulary" %}{% assign cat_d = cat_obj.vocabulary %}
+            {% elsif cat_obj.grammar %}{% assign cat_k = "grammar" %}{% assign cat_d = cat_obj.grammar %}
+            {% elsif cat_obj["use of english"] %}{% assign cat_k = "use-of-english" %}{% assign cat_d = cat_obj["use of english"] %}
+            {% elsif cat_obj.exercises %}{% assign cat_k = "exercises" %}{% assign cat_d = cat_obj.exercises %}
+            {% endif %}
+
+            {% if cat_d and cat_d.items.size > 0 %}
+              {% for itm in cat_d.items %}
+                {% if displayed < 3 %}
+                  {% assign itm_url = itm.url %}
+                  {% assign f_c = itm_url | slice: 0, 1 %}
+                  {% if f_c != "/" and itm_url contains "://" == false %}
+                    {% assign itm_url = "/" | append: itm_url %}
+                  {% endif %}
+                  <li>
+                    <a href="{{ itm_url | relative_url }}">
+                      <span class="cat-tag-pill cat-tag-{{ cat_k }}" style="font-size: 0.65rem;">
+                        {{ cat_d.name_en }}
+                      </span>
+                      <span class="lang-en">{{ itm.name_en }}</span>
+                      <span class="lang-es">{{ itm.name_es }}</span>
+                    </a>
+                  </li>
+                  {% assign displayed = displayed | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
           {% endfor %}
-          {% if lvl.items.size > 3 %}
+
+          {% if total_items > 3 %}
             <li style="font-size: 0.8rem; color: var(--text-light); padding-top: 0.2rem;">
-              +{{ lvl.items.size | minus: 3 }} <span class="lang-en">more topics...</span><span class="lang-es">temas más...</span>
+              +{{ total_items | minus: 3 }} <span class="lang-en">more topics...</span><span class="lang-es">temas más...</span>
+            </li>
+          {% elsif total_items == 0 %}
+            <li style="font-size: 0.85rem; color: var(--text-muted); font-style: italic; padding: 0.5rem 0;">
+              <span class="lang-en">Contents in development...</span>
+              <span class="lang-es">Contenidos en preparación...</span>
             </li>
           {% endif %}
         </ul>
 
-        <a href="{{ lvl.items[0].url | relative_url }}" class="level-card-btn">
-          <span class="lang-en">Explore {{ lvl.code }} &rarr;</span>
-          <span class="lang-es">Explorar {{ lvl.code }} &rarr;</span>
-        </a>
+        {% if first_item_url %}
+          <a href="{{ first_item_url | relative_url }}" class="level-card-btn">
+            <span class="lang-en">Explore {{ lvl_code }} &rarr;</span>
+            <span class="lang-es">Explorar {{ lvl_code }} &rarr;</span>
+          </a>
+        {% else %}
+          <button class="level-card-btn level-nav-link" data-level="{{ lvl.id }}" style="cursor: pointer; border: none; width: 100%;">
+            <span class="lang-en">Select {{ lvl_code }} &rarr;</span>
+            <span class="lang-es">Elegir {{ lvl_code }} &rarr;</span>
+          </button>
+        {% endif %}
       </div>
     {% endfor %}
   </div>

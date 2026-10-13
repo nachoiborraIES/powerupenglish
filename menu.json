@@ -1,0 +1,343 @@
+{
+    "levels": 
+    [
+        {
+            "id": "a1",
+            "name_en": "Level A1 - Beginner",
+            "name_es": "Nivel A1 - Principiante",
+            "categories":
+            [
+                {
+                    "vocabulary":
+                    {
+                        "name_en": "Vocabulary",
+                        "name_es": "Vocabulario",
+                        "items":
+                        [
+                            {
+                                "name_en": "Who am I?",
+                                "name_es": "¿Quién soy yo?",
+                                "url": "a1/who-am-i.html"
+                            },
+                            {
+                                "name_en": "House and furniture",
+                                "name_es": "La casa y los muebles",
+                                "url": "a1/house-and-furniture.html"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "grammar":
+                    {
+                        "name_en": "Grammar",
+                        "name_es": "Gramática",
+                        "items":
+                        [
+                            {
+                                "name_en": "Verb 'to be'",
+                                "name_es": "Verbo 'to be'",
+                                "url": "a1/to-be.html"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "use of english":
+                    {
+                        "name_en": "Use of English",
+                        "name_es": "Uso del idioma",
+                        "items":
+                        [
+                            {
+                                "name_en": "Sentence structure",
+                                "name_es": "Estructura de la oración",
+                                "url": "a1/sentences.html"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "exercises":
+                    {
+                        "name_en": "Exercises",
+                        "name_es": "Ejercicios",
+                        "items":
+                        [
+                            {
+                                "name_en": "Initial exercises",
+                                "name_es": "Ejercicios iniciales",
+                                "url": "a1/initial-exercises.html"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+
+        {
+            "id": "a2",
+            "name_en": "Level A2 - Elementary",
+            "name_es": "Nivel A2 - Elemental",
+            "categories":
+            [
+                {
+                    "vocabulary":
+                    {
+                        "name_en": "Vocabulary",
+                        "name_es": "Vocabulario",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "grammar":
+                    {
+                        "name_en": "Grammar",
+                        "name_es": "Gramática",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "use of english":
+                    {
+                        "name_en": "Use of English",
+                        "name_es": "Uso del idioma",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "exercises":
+                    {
+                        "name_en": "Exercises",
+                        "name_es": "Ejercicios",
+                        "items":
+                        [
+
+                        ]
+                    }
+                }
+            ]
+        },
+
+        {
+            "id": "b1",
+            "name_en": "Level B1 - Intermediate",
+            "name_es": "Nivel B1 - Intermedio",
+            "categories":
+            [
+                {
+                    "vocabulary":
+                    {
+                        "name_en": "Vocabulary",
+                        "name_es": "Vocabulario",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "grammar":
+                    {
+                        "name_en": "Grammar",
+                        "name_es": "Gramática",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "use of english":
+                    {
+                        "name_en": "Use of English",
+                        "name_es": "Uso del idioma",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "exercises":
+                    {
+                        "name_en": "Exercises",
+                        "name_es": "Ejercicios",
+                        "items":
+                        [
+
+                        ]
+                    }
+                }
+            ]
+        },
+
+        {
+            "id": "b2",
+            "name_en": "Level B2 - Upper Intermediate",
+            "name_es": "Nivel A1 - Intermedio Alto",
+            "categories":
+            [
+                {
+                    "vocabulary":
+                    {
+                        "name_en": "Vocabulary",
+                        "name_es": "Vocabulario",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "grammar":
+                    {
+                        "name_en": "Grammar",
+                        "name_es": "Gramática",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "use of english":
+                    {
+                        "name_en": "Use of English",
+                        "name_es": "Uso del idioma",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "exercises":
+                    {
+                        "name_en": "Exercises",
+                        "name_es": "Ejercicios",
+                        "items":
+                        [
+
+                        ]
+                    }
+                }
+            ]
+        },
+
+        {
+            "id": "c1",
+            "name_en": "Level C1 - Advanced",
+            "name_es": "Nivel C1 - Avanzado",
+            "categories":
+            [
+                {
+                    "vocabulary":
+                    {
+                        "name_en": "Vocabulary",
+                        "name_es": "Vocabulario",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "grammar":
+                    {
+                        "name_en": "Grammar",
+                        "name_es": "Gramática",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "use of english":
+                    {
+                        "name_en": "Use of English",
+                        "name_es": "Uso del idioma",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "exercises":
+                    {
+                        "name_en": "Exercises",
+                        "name_es": "Ejercicios",
+                        "items":
+                        [
+
+                        ]
+                    }
+                }
+            ]
+        },
+
+        {
+            "id": "c2",
+            "name_en": "Level C2 - Proficiency",
+            "name_es": "Nivel C2 - Maestría",
+            "categories":
+            [
+                {
+                    "vocabulary":
+                    {
+                        "name_en": "Vocabulary",
+                        "name_es": "Vocabulario",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "grammar":
+                    {
+                        "name_en": "Grammar",
+                        "name_es": "Gramática",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "use of english":
+                    {
+                        "name_en": "Use of English",
+                        "name_es": "Uso del idioma",
+                        "items":
+                        [
+
+                        ]
+                    }
+                },
+                {
+                    "exercises":
+                    {
+                        "name_en": "Exercises",
+                        "name_es": "Ejercicios",
+                        "items":
+                        [
+
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
