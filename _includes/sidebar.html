@@ -34,6 +34,33 @@
           <span class="lang-es">{{ lvl.name_es }}</span>
         </div>
 
+        <!-- Level Progress Summary Card -->
+        <div class="sidebar-progress-card" data-level="{{ lvl.id }}">
+          <div class="sidebar-progress-info">
+            <span class="sidebar-progress-label">
+              <span class="lang-en">Level progress</span>
+              <span class="lang-es">Progreso del nivel</span>
+            </span>
+            <span class="sidebar-progress-stats">
+              <span class="progress-completed-count">0</span>/<span class="progress-total-count">0</span>
+              <span class="progress-percent-pill">0%</span>
+            </span>
+          </div>
+          <div class="sidebar-progress-track">
+            <div class="sidebar-progress-fill" style="width: 0%;"></div>
+          </div>
+          <div class="sidebar-progress-status-text">
+            <span class="progress-status-pending">
+              <span class="lang-en"><strong class="progress-remaining-count">0</strong> topics left</span>
+              <span class="lang-es"><strong class="progress-remaining-count">0</strong> pendientes</span>
+            </span>
+            <span class="progress-status-all-done" style="display: none;">
+              <span class="lang-en">🎉 Level complete!</span>
+              <span class="lang-es">🎉 ¡Nivel completado!</span>
+            </span>
+          </div>
+        </div>
+
         <div class="sidebar-categories-accordion">
           {% for cat_obj in lvl.categories %}
             {% assign cat_key = "" %}
@@ -107,14 +134,25 @@
                         {% assign item_url = item_raw_url %}
                       {% endif %}
 
-                      <li class="sidebar-menu-item cat-{{ cat_key }} {% if page.url == item_url %}active{% endif %}">
-                        <a href="{{ item_url | relative_url }}">
-                          <span class="sidebar-item-bullet">•</span>
+                      <li class="sidebar-menu-item cat-{{ cat_key }} {% if page.url == item_url %}active{% endif %}" data-item-url="{{ item_url }}">
+                        <a href="{{ item_url | relative_url }}" class="sidebar-item-link">
+                          <span class="sidebar-item-bullet" aria-hidden="true">•</span>
                           <span class="sidebar-link-text">
                             <span class="lang-en">{{ item.name_en }}</span>
                             <span class="lang-es">{{ item.name_es }}</span>
                           </span>
+                          <span class="sidebar-completed-badge" aria-hidden="true" title="Superada / Completed">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                          </span>
                         </a>
+                        <button type="button" class="sidebar-check-toggle" data-topic-url="{{ item_url }}" aria-label="Marcar como superada / Mark as completed" title="Marcar como superada / Mark as completed">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" class="circle-icon"></circle>
+                            <path d="M20 6 9 17l-5-5" class="check-icon"></path>
+                          </svg>
+                        </button>
                       </li>
                     {% endfor %}
                   </ul>
@@ -131,5 +169,20 @@
       </div>
     {% endfor %}
   </nav>
+
+  <div class="sidebar-footer-progress">
+    <div class="total-progress-pill">
+      <span class="lang-en">Total: <strong class="total-completed-num">0</strong> completed</span>
+      <span class="lang-es">Total: <strong class="total-completed-num">0</strong> superadas</span>
+    </div>
+    <button type="button" id="sidebar-reset-progress-btn" class="sidebar-reset-btn" title="Reiniciar progreso guardado / Reset saved progress">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+        <path d="M3 3v5h5"></path>
+      </svg>
+      <span class="lang-en">Reset</span>
+      <span class="lang-es">Reiniciar</span>
+    </button>
+  </div>
 </aside>
 <div id="sidebar-backdrop" class="sidebar-backdrop"></div>

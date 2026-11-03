@@ -1116,3 +1116,387 @@ body.lang-es .lang-en {
   }
 }
 
+/* ==========================================================================
+   Progress Tracking System ("Revisada" / "Superada")
+   ========================================================================== */
+
+/* 1. Sidebar Level Progress Summary Card */
+.sidebar-progress-card {
+  margin: 0.5rem 0.85rem 0.85rem;
+  padding: 0.75rem 0.85rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.sidebar-progress-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.sidebar-progress-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sidebar-progress-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.progress-percent-pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 12px;
+  background-color: rgba(16, 185, 129, 0.14);
+  color: #059669;
+}
+
+[data-theme="dark"] .progress-percent-pill {
+  background-color: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+}
+
+.sidebar-progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--border-color);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0.4rem 0;
+}
+
+.sidebar-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 999px;
+  transition: width 0.35s ease-in-out;
+}
+
+.sidebar-progress-status-text {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+
+.progress-remaining-count {
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.progress-status-all-done {
+  color: #059669;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .progress-status-all-done {
+  color: #34d399;
+}
+
+/* 2. Sidebar Menu Item - Completed State */
+.sidebar-menu-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-menu-item .sidebar-item-link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.sidebar-completed-badge {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background-color: #10b981;
+  color: #ffffff;
+  margin-left: 0.4rem;
+  flex-shrink: 0;
+}
+
+.sidebar-menu-item.is-completed .sidebar-completed-badge {
+  display: inline-flex;
+}
+
+.sidebar-menu-item.is-completed .sidebar-item-bullet {
+  color: #10b981;
+}
+
+.sidebar-menu-item.is-completed .sidebar-link-text {
+  color: #059669;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .sidebar-menu-item.is-completed .sidebar-link-text {
+  color: #34d399;
+}
+
+/* Sidebar item completion checkbox button */
+.sidebar-check-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0;
+  margin-left: 0.25rem;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-check-toggle:hover {
+  opacity: 1;
+  background-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.sidebar-check-toggle .check-icon {
+  display: none;
+}
+
+.sidebar-menu-item.is-completed .sidebar-check-toggle {
+  opacity: 1;
+  color: #10b981;
+}
+
+.sidebar-menu-item.is-completed .sidebar-check-toggle .circle-icon {
+  display: none;
+}
+
+.sidebar-menu-item.is-completed .sidebar-check-toggle .check-icon {
+  display: block;
+}
+
+/* 3. Sidebar Footer Total Progress */
+.sidebar-footer-progress {
+  padding: 0.65rem 0.85rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.total-progress-pill strong {
+  color: #10b981;
+}
+
+.sidebar-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-reset-btn:hover {
+  border-color: var(--border-color);
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* 4. Top Header Complete Button */
+.header-complete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.header-complete-btn:hover {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.header-complete-btn .icon-checked,
+.header-complete-btn .state-completed {
+  display: none;
+}
+
+.header-complete-btn.is-completed {
+  background-color: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+.header-complete-btn.is-completed .icon-circle,
+.header-complete-btn.is-completed .state-uncompleted {
+  display: none;
+}
+
+.header-complete-btn.is-completed .icon-checked,
+.header-complete-btn.is-completed .state-completed {
+  display: inline-flex;
+}
+
+/* 5. Page Complete Button (in Topic Page Header Box) */
+.page-complete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-left: auto;
+}
+
+.page-complete-btn:hover {
+  border-color: #10b981;
+  color: #059669;
+  background-color: rgba(16, 185, 129, 0.06);
+}
+
+.page-complete-btn .icon-checked,
+.page-complete-btn .state-completed {
+  display: none;
+}
+
+.page-complete-btn.is-completed {
+  background-color: rgba(16, 185, 129, 0.12);
+  border-color: #10b981;
+  color: #059669;
+}
+
+[data-theme="dark"] .page-complete-btn.is-completed {
+  background-color: rgba(16, 185, 129, 0.22);
+  border-color: #10b981;
+  color: #34d399;
+}
+
+.page-complete-btn.is-completed .icon-circle,
+.page-complete-btn.is-completed .state-uncompleted {
+  display: none;
+}
+
+.page-complete-btn.is-completed .icon-checked,
+.page-complete-btn.is-completed .state-completed {
+  display: inline-flex;
+}
+
+/* 6. Topic Completion Banner (Bottom of each topic page) */
+.topic-completion-banner {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.topic-completion-banner.is-completed {
+  border-color: #10b981;
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.08), var(--bg-card));
+}
+
+.completion-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.completion-banner-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: rgba(16, 185, 129, 0.14);
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.completion-banner-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.2rem;
+}
+
+.completion-banner-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.page-complete-btn-large {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.92rem;
+  border-radius: 10px;
+}
+
+.page-complete-btn-large.is-completed {
+  background-color: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+}
+
+@media (max-width: 640px) {
+  .topic-completion-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .page-complete-btn-large {
+    justify-content: center;
+  }
+}
+

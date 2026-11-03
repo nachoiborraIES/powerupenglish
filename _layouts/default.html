@@ -3,7 +3,7 @@
 <head>
   {% include head.html %}
 </head>
-<body class="lang-en" {% if page.level %}data-active-level="{{ page.level }}"{% endif %}>
+<body class="lang-en" {% if page.level %}data-active-level="{{ page.level }}"{% endif %} {% if page.url %}data-page-url="{{ page.url }}"{% endif %}>
   {% include header.html %}
 
   <div class="site-body">

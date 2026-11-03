@@ -351,6 +351,251 @@
     }
   }
 
+  /* ==========================================================================
+     Progress Tracking System ("Revisada" / "Superada")
+     ========================================================================== */
+
+  const STORAGE_KEY_PROGRESS = 'powerup_completed_topics';
+
+  /**
+   * Normalize topic URL into a standard key, e.g. "/a1/who-am-i.html"
+   */
+  function normalizeTopicUrl(url) {
+    if (!url) return '';
+    let clean = url.trim();
+    try {
+      if (clean.startsWith('http://') || clean.startsWith('https://')) {
+        const parsed = new URL(clean);
+        clean = parsed.pathname;
+      }
+    } catch (e) {}
+
+    clean = clean.split('#')[0].split('?')[0];
+
+    // Check if it matches a course level path /(a1|a2|b1|b2|c1|c2)/topic.html
+    const match = clean.match(/\/(a[12]|b[12]|c[12])\/[^\/]+\.html/i);
+    if (match) {
+      return match[0].toLowerCase();
+    }
+
+    if (!clean.startsWith('/')) {
+      clean = '/' + clean;
+    }
+    return clean.toLowerCase();
+  }
+
+  /**
+   * Get array of completed topic URLs from localStorage
+   */
+  function getCompletedTopics() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEY_PROGRESS);
+      return data ? JSON.parse(data) : [];
+    } catch (e) {
+      console.warn('Could not read completed topics from localStorage', e);
+      return [];
+    }
+  }
+
+  /**
+   * Save array of completed topic URLs to localStorage
+   */
+  function saveCompletedTopics(list) {
+    try {
+      localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(list));
+    } catch (e) {
+      console.error('Could not save completed topics to localStorage', e);
+    }
+  }
+
+  /**
+   * Check if a given topic URL is marked completed
+   */
+  function isTopicCompleted(url) {
+    const norm = normalizeTopicUrl(url);
+    if (!norm) return false;
+    const completed = getCompletedTopics();
+    return completed.includes(norm);
+  }
+
+  /**
+   * Set completion state for a given topic URL
+   */
+  function setTopicCompleted(url, isCompleted) {
+    const norm = normalizeTopicUrl(url);
+    if (!norm) return;
+    let completed = getCompletedTopics();
+    const index = completed.indexOf(norm);
+
+    if (isCompleted && index === -1) {
+      completed.push(norm);
+    } else if (!isCompleted && index !== -1) {
+      completed.splice(index, 1);
+    }
+
+    saveCompletedTopics(completed);
+    updateAllProgressUI();
+  }
+
+  /**
+   * Toggle completion state for a given topic URL
+   */
+  function toggleTopicCompletion(url) {
+    const norm = normalizeTopicUrl(url);
+    if (!norm) return;
+    const current = isTopicCompleted(norm);
+    setTopicCompleted(norm, !current);
+  }
+
+  /**
+   * Update all completion UI elements (buttons, sidebar items, progress bars)
+   */
+  function updateAllProgressUI() {
+    const completed = getCompletedTopics();
+    const currentPath = normalizeTopicUrl(window.location.pathname);
+
+    // 1. Update all completion toggle buttons on the page
+    document.querySelectorAll('.topic-complete-toggle-btn').forEach(btn => {
+      const rawUrl = btn.getAttribute('data-topic-url') || currentPath;
+      const norm = normalizeTopicUrl(rawUrl);
+      const isDone = completed.includes(norm);
+
+      if (isDone) {
+        btn.classList.add('is-completed');
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        btn.classList.remove('is-completed');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+
+    // 2. Update topic completion bottom banners
+    document.querySelectorAll('.topic-completion-banner').forEach(banner => {
+      const btn = banner.querySelector('.topic-complete-toggle-btn');
+      if (btn && btn.classList.contains('is-completed')) {
+        banner.classList.add('is-completed');
+      } else {
+        banner.classList.remove('is-completed');
+      }
+    });
+
+    // 3. Update sidebar menu items
+    document.querySelectorAll('.sidebar-menu-item').forEach(item => {
+      const itemUrl = item.getAttribute('data-item-url');
+      const norm = normalizeTopicUrl(itemUrl);
+      const isDone = completed.includes(norm);
+
+      if (isDone) {
+        item.classList.add('is-completed');
+      } else {
+        item.classList.remove('is-completed');
+      }
+    });
+
+    // 4. Update level progress bars and stats for each level group
+    document.querySelectorAll('.sidebar-level-group').forEach(group => {
+      const items = group.querySelectorAll('.sidebar-menu-item');
+      const total = items.length;
+      let completedCount = 0;
+
+      items.forEach(item => {
+        if (item.classList.contains('is-completed')) {
+          completedCount++;
+        }
+      });
+
+      const percent = total > 0 ? Math.round((completedCount / total) * 100) : 0;
+      const remaining = Math.max(0, total - completedCount);
+
+      const card = group.querySelector('.sidebar-progress-card');
+      if (card) {
+        const completedEl = card.querySelector('.progress-completed-count');
+        const totalEl = card.querySelector('.progress-total-count');
+        const percentEl = card.querySelector('.progress-percent-pill');
+        const fillEl = card.querySelector('.sidebar-progress-fill');
+        const pendingStatus = card.querySelector('.progress-status-pending');
+        const allDoneStatus = card.querySelector('.progress-status-all-done');
+
+        if (completedEl) completedEl.textContent = completedCount;
+        if (totalEl) totalEl.textContent = total;
+        if (percentEl) percentEl.textContent = percent + '%';
+        if (fillEl) fillEl.style.width = percent + '%';
+
+        card.querySelectorAll('.progress-remaining-count').forEach(el => {
+          el.textContent = remaining;
+        });
+
+        if (completedCount === total && total > 0) {
+          if (pendingStatus) pendingStatus.style.display = 'none';
+          if (allDoneStatus) allDoneStatus.style.display = 'inline';
+        } else {
+          if (pendingStatus) pendingStatus.style.display = 'inline';
+          if (allDoneStatus) allDoneStatus.style.display = 'none';
+        }
+      }
+    });
+
+    // 5. Update global total counter in sidebar footer
+    const totalCompletedEl = document.querySelector('.total-completed-num');
+    if (totalCompletedEl) {
+      // Count total unique completed topics matching items in the sidebar
+      const allItemUrls = new Set();
+      document.querySelectorAll('.sidebar-menu-item').forEach(item => {
+        const u = normalizeTopicUrl(item.getAttribute('data-item-url'));
+        if (u) allItemUrls.add(u);
+      });
+
+      const siteCompletedCount = completed.filter(u => allItemUrls.has(u)).length;
+      totalCompletedEl.textContent = siteCompletedCount;
+    }
+  }
+
+  /**
+   * Setup click listeners for topic completion buttons and checkboxes
+   */
+  function setupProgressTracking() {
+    // 1. Click on page or header complete buttons
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('.topic-complete-toggle-btn');
+      if (!btn) return;
+
+      // Don't intercept if click was on something else
+      e.preventDefault();
+      const rawUrl = btn.getAttribute('data-topic-url') || window.location.pathname;
+      toggleTopicCompletion(rawUrl);
+    });
+
+    // 2. Click on sidebar checkmark toggle button
+    document.addEventListener('click', function (e) {
+      const toggle = e.target.closest('.sidebar-check-toggle');
+      if (!toggle) return;
+
+      e.preventDefault();
+      e.stopPropagation(); // prevent clicking through to the item link
+      const rawUrl = toggle.getAttribute('data-topic-url');
+      if (rawUrl) {
+        toggleTopicCompletion(rawUrl);
+      }
+    });
+
+    // 3. Reset progress button
+    const resetBtn = document.getElementById('sidebar-reset-progress-btn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const isEs = getCurrentLanguage() === 'es';
+        const msg = isEs
+          ? '¿Estás seguro de que quieres reiniciar el progreso guardado de todos los temas?'
+          : 'Are you sure you want to reset your saved progress for all topics?';
+
+        if (window.confirm(msg)) {
+          localStorage.removeItem(STORAGE_KEY_PROGRESS);
+          updateAllProgressUI();
+        }
+      });
+    }
+  }
+
   // DOM ready initialization
   document.addEventListener('DOMContentLoaded', function () {
     const initialLang = getCurrentLanguage();
@@ -358,6 +603,8 @@
     setupLanguageButtons();
     setupSidebar();
     setupAudioButtons();
+    setupProgressTracking();
+    updateAllProgressUI();
 
     // Determine initial active level from body data attribute
     const activeLevel = document.body.getAttribute('data-active-level') || 'a1';
@@ -370,7 +617,11 @@
     setLanguage: applyLanguage,
     getCurrentLanguage: getCurrentLanguage,
     showSidebarLevel: showSidebarLevel,
-    speakEnglish: speakEnglish
+    speakEnglish: speakEnglish,
+    toggleTopicCompletion: toggleTopicCompletion,
+    isTopicCompleted: isTopicCompleted,
+    updateAllProgressUI: updateAllProgressUI
   };
 })();
+
 
