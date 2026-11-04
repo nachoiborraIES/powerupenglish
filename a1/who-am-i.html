@@ -33,7 +33,7 @@ permalink: /a1/who-am-i.html
   <table class="dual-lang-table">
     <thead>
       <tr>
-        <th>English Expression</th>
+        <th class="no-audio" data-no-audio>English Expression</th>
         <th>Traducción al Español</th>
         <th>Example / Ejemplo</th>
       </tr>
@@ -50,8 +50,8 @@ permalink: /a1/who-am-i.html
         <td>I am from Spain.</td>
       </tr>
       <tr>
-        <td><strong>I am [years] old</strong></td>
-        <td>Tengo [años] de edad</td>
+        <td><strong>I am ... years old</strong></td>
+        <td>Tengo ... años de edad</td>
         <td>I am 25 years old.</td>
       </tr>
       <tr>
@@ -67,4 +67,403 @@ permalink: /a1/who-am-i.html
     </tbody>
   </table>
 </div>
+
+<!-- Interactive Translation Practice Exercise -->
+<div class="content-card practice-container" id="translation-practice">
+  <div class="practice-header">
+    <div style="display: flex; align-items: center; gap: 0.6rem;">
+      <span class="cat-tag-pill cat-tag-exercises">
+        <span class="lang-en">Practice Exercise</span>
+        <span class="lang-es">Ejercicio Práctico</span>
+      </span>
+      <span class="practice-step-pill" id="step-counter">
+        <span class="lang-en">Sentence 1 of 5</span>
+        <span class="lang-es">Frase 1 de 5</span>
+      </span>
+    </div>
+    <span class="practice-type-tag" id="type-badge">
+      <span class="lang-en">Type: Name</span>
+      <span class="lang-es">Tipo: Nombre</span>
+    </span>
+  </div>
+
+  <h2 style="font-size: 1.35rem; margin-bottom: 0.5rem;">
+    <span class="lang-en">Translate into English</span>
+    <span class="lang-es">Traduce al Inglés</span>
+  </h2>
+  <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.25rem;">
+    <span class="lang-en">
+      Translate each sentence below using the patterns from the table. You will see whether your answer is correct and view the solution before continuing to the next sentence.
+    </span>
+    <span class="lang-es">
+      Traduce al inglés cada frase a continuación utilizando las estructuras de la tabla. Al enviar cada una verás si has acertado y la respuesta correcta antes de pasar a la siguiente.
+    </span>
+  </p>
+
+  <div class="practice-progress-bar-wrap">
+    <div class="practice-progress-bar-fill" id="practice-progress" style="width: 20%;"></div>
+  </div>
+
+  <!-- Screen 1: Active Question -->
+  <div id="exercise-question-screen">
+    <div class="practice-prompt-box">
+      <div class="practice-prompt-label">
+        <span class="lang-en">Translate this phrase into English:</span>
+        <span class="lang-es">Traduce esta frase al inglés:</span>
+      </div>
+      <div class="practice-prompt-text" id="prompt-spanish">« Me llamo Lucas. »</div>
+    </div>
+
+    <form id="practice-form" onsubmit="event.preventDefault(); handleCheckAnswer();">
+      <div class="practice-input-group">
+        <label for="practice-user-input" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">
+          <span class="lang-en">Your English translation:</span>
+          <span class="lang-es">Tu traducción al inglés:</span>
+        </label>
+        <input 
+          type="text" 
+          id="practice-user-input" 
+          class="practice-input" 
+          placeholder="Escribe tu traducción aquí... (p. ej. My name is Lucas.)" 
+          autocomplete="off" 
+          spellcheck="false"
+          required
+        />
+      </div>
+
+      <div class="practice-actions">
+        <button type="button" id="btn-submit-answer" class="practice-btn-check" onclick="handleCheckAnswer()">
+          <span class="lang-en">Check Answer</span>
+          <span class="lang-es">Comprobar Respuesta</span>
+        </button>
+
+        <button type="button" id="btn-next-question" class="practice-btn-next practice-hidden" onclick="handleNextQuestion()">
+          <span class="lang-en">Next Sentence &rarr;</span>
+          <span class="lang-es">Siguiente Frase &rarr;</span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Feedback Panel -->
+    <div id="practice-feedback-panel" class="practice-feedback practice-hidden" aria-live="polite">
+      <div class="practice-feedback-title" id="feedback-status-title"></div>
+      <div class="practice-feedback-solution" id="feedback-solution-box"></div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Results & Summary -->
+  <div id="exercise-results-screen" class="practice-results-card practice-hidden">
+    <div style="font-size: 3rem; margin-bottom: 0.5rem;" id="results-icon">🎉</div>
+    <div class="practice-results-score" id="results-score-text">5 / 5</div>
+    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;" id="results-heading">
+      <span class="lang-en">Exercise Completed!</span>
+      <span class="lang-es">¡Ejercicio Completado!</span>
+    </h3>
+    <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem;" id="results-message"></p>
+
+    <!-- Detailed Summary List of all 5 sentences -->
+    <div class="practice-results-list" id="results-review-list"></div>
+
+    <button type="button" class="practice-btn-check" onclick="restartExercise()" style="margin: 0 auto;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+        <path d="M3 3v5h5"></path>
+      </svg>
+      <span class="lang-en">Practice Again</span>
+      <span class="lang-es">Repetir Ejercicio</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const questions = [
+      {
+        typeEn: "Name",
+        typeEs: "Nombre",
+        spanish: "Me llamo Ana.",
+        target: "My name is Ana.",
+        accepted: [
+          "my name is ana",
+          "my names ana",
+          "i am ana",
+          "im ana"
+        ]
+      },
+      {
+        typeEn: "Origin",
+        typeEs: "Procedencia",
+        spanish: "Soy de España.",
+        target: "I am from Spain.",
+        accepted: [
+          "i am from spain",
+          "im from spain"
+        ]
+      },
+      {
+        typeEn: "Age",
+        typeEs: "Edad",
+        spanish: "Tengo 34 años de edad.",
+        target: "I am 34 years old.",
+        accepted: [
+          "i am 34 years old",
+          "im 34 years old",
+          "i am thirty four five years old",
+          "im thirty four years old",
+          "i am thirty-four years old",
+          "im thirty-four years old",
+          "i am 34",
+          "im 34"
+        ]
+      },
+      {
+        typeEn: "Greeting",
+        typeEs: "Saludo",
+        spanish: "Mucho gusto / Encantado de conocerte.",
+        target: "Nice to meet you.",
+        accepted: [
+          "nice to meet you",
+          "it is nice to meet you",
+          "its nice to meet you",
+          "pleased to meet you",
+          "it is a pleasure to meet you",
+          "its a pleasure to meet you"
+        ]
+      },
+      {
+        typeEn: "Residence",
+        typeEs: "Lugar de residencia",
+        spanish: "Vivo en Alicante.",
+        target: "I live in Alicante.",
+        accepted: [
+          "i live in alicante"
+        ]
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let userAnswers = [];
+    let isChecked = false;
+
+    function cleanString(str) {
+      return (str || "")
+        .toLowerCase()
+        .replace(/[’']/g, "")
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?!¿¡"']/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function renderCurrentQuestion() {
+      const q = questions[currentIndex];
+      isChecked = false;
+
+      // Update counters & progress
+      const stepEl = document.getElementById("step-counter");
+      if (stepEl) {
+        stepEl.innerHTML = `<span class="lang-en">Sentence ${currentIndex + 1} of ${questions.length}</span><span class="lang-es">Frase ${currentIndex + 1} de ${questions.length}</span>`;
+      }
+
+      const typeEl = document.getElementById("type-badge");
+      if (typeEl) {
+        typeEl.innerHTML = `<span class="lang-en">Type: ${q.typeEn}</span><span class="lang-es">Tipo: ${q.typeEs}</span>`;
+      }
+
+      const progressPercent = ((currentIndex + 1) / questions.length) * 100;
+      document.getElementById("practice-progress").style.width = progressPercent + "%";
+
+      // Set prompt
+      document.getElementById("prompt-spanish").textContent = `« ${q.spanish} »`;
+
+      // Reset input
+      const input = document.getElementById("practice-user-input");
+      input.value = "";
+      input.disabled = false;
+      input.className = "practice-input";
+      setTimeout(() => input.focus(), 60);
+
+      // Reset buttons and feedback
+      document.getElementById("btn-submit-answer").classList.remove("practice-hidden");
+      document.getElementById("btn-next-question").classList.add("practice-hidden");
+
+      const feedback = document.getElementById("practice-feedback-panel");
+      feedback.className = "practice-feedback practice-hidden";
+      feedback.innerHTML = "";
+    }
+
+    window.handleCheckAnswer = function() {
+      if (isChecked) return;
+      const input = document.getElementById("practice-user-input");
+      const userRaw = input.value.trim();
+      if (!userRaw) {
+        input.focus();
+        return;
+      }
+
+      isChecked = true;
+      const q = questions[currentIndex];
+      const cleanedUser = cleanString(userRaw);
+      const isCorrect = q.accepted.map(cleanString).includes(cleanedUser);
+
+      if (isCorrect) score++;
+
+      userAnswers.push({
+        question: q,
+        userInput: userRaw,
+        isCorrect: isCorrect
+      });
+
+      // Update input styling
+      input.disabled = true;
+      input.classList.add(isCorrect ? "is-correct" : "is-incorrect");
+
+      // Show feedback
+      const feedback = document.getElementById("practice-feedback-panel");
+      feedback.classList.remove("practice-hidden");
+      feedback.classList.add(isCorrect ? "is-correct" : "is-incorrect");
+
+      if (isCorrect) {
+        feedback.innerHTML = `
+          <div class="practice-feedback-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span class="lang-en">Correct! Well done.</span>
+            <span class="lang-es">¡Correcto! Muy bien.</span>
+          </div>
+          <div class="practice-feedback-solution">
+            <span class="lang-en">Natural English:</span>
+            <span class="lang-es">Frase en inglés:</span>
+            <strong>${q.target}</strong>
+            <button type="button" class="audio-btn" data-speak="${q.target}" title="Listen / Escuchar">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </button>
+          </div>
+        `;
+      } else {
+        feedback.innerHTML = `
+          <div class="practice-feedback-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="lang-en">Not quite right.</span>
+            <span class="lang-es">No es del todo correcto.</span>
+          </div>
+          <div class="practice-feedback-solution">
+            <span class="lang-en">Correct answer:</span>
+            <span class="lang-es">Respuesta correcta:</span>
+            <strong>${q.target}</strong>
+            <button type="button" class="audio-btn" data-speak="${q.target}" title="Listen / Escuchar">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </button>
+          </div>
+        `;
+      }
+
+      // Toggle action buttons
+      document.getElementById("btn-submit-answer").classList.add("practice-hidden");
+      const nextBtn = document.getElementById("btn-next-question");
+      nextBtn.classList.remove("practice-hidden");
+      nextBtn.focus();
+    };
+
+    window.handleNextQuestion = function() {
+      currentIndex++;
+      if (currentIndex < questions.length) {
+        renderCurrentQuestion();
+      } else {
+        showResults();
+      }
+    };
+
+    function showResults() {
+      document.getElementById("exercise-question-screen").classList.add("practice-hidden");
+      document.getElementById("exercise-results-screen").classList.remove("practice-hidden");
+
+      document.getElementById("results-score-text").textContent = `${score} / ${questions.length}`;
+
+      const icon = document.getElementById("results-icon");
+      const heading = document.getElementById("results-heading");
+      const msg = document.getElementById("results-message");
+
+      if (score === 5) {
+        icon.textContent = "🏆";
+        msg.innerHTML = `<span class="lang-en">Outstanding! You've mastered all basic self-introduction patterns.</span><span class="lang-es">¡Sobresaliente! Has dominado todas las estructuras básicas de presentación personal.</span>`;
+      } else if (score >= 3) {
+        icon.textContent = "👍";
+        msg.innerHTML = `<span class="lang-en">Good job! Review the phrases you missed to achieve a perfect score.</span><span class="lang-es">¡Buen trabajo! Revisa las frases que has fallado para lograr una puntuación perfecta.</span>`;
+      } else {
+        icon.textContent = "💪";
+        msg.innerHTML = `<span class="lang-en">Keep practicing! Take another look at the table above and try again.</span><span class="lang-es">¡Sigue practicando! Échale otro vistazo a la tabla superior y vuelve a intentarlo.</span>`;
+      }
+
+      // Render summary of sentences
+      const reviewList = document.getElementById("results-review-list");
+      reviewList.innerHTML = userAnswers.map((item, idx) => `
+        <div class="practice-result-item ${item.isCorrect ? "was-correct" : "was-incorrect"}">
+          <div style="flex: 1;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.2rem;">
+              <span class="lang-en">${item.question.typeEn}</span><span class="lang-es">${item.question.typeEs}</span> &bull; <em>« ${item.question.spanish} »</em>
+            </div>
+            <div style="font-size: 0.95rem;">
+              <span class="lang-en">Your answer:</span><span class="lang-es">Tu respuesta:</span>
+              <span style="color: ${item.isCorrect ? "#10b981" : "#ef4444"}; font-weight: 600;">"${item.userInput}"</span>
+              ${!item.isCorrect ? `&rarr; <span class="lang-en">Correct:</span><span class="lang-es">Correcta:</span> <strong>${item.question.target}</strong>` : ""}
+            </div>
+          </div>
+          <div>
+            <button type="button" class="audio-btn" data-speak="${item.question.target}" title="Listen / Escuchar">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      `).join("");
+
+      const container = document.getElementById("translation-practice");
+      if (container) container.scrollIntoView({ behavior: "smooth" });
+    }
+
+    window.restartExercise = function() {
+      currentIndex = 0;
+      score = 0;
+      userAnswers = [];
+      document.getElementById("exercise-results-screen").classList.add("practice-hidden");
+      document.getElementById("exercise-question-screen").classList.remove("practice-hidden");
+      renderCurrentQuestion();
+      const container = document.getElementById("translation-practice");
+      if (container) container.scrollIntoView({ behavior: "smooth" });
+    };
+
+    // Keyboard support for Enter key
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        const nextBtn = document.getElementById("btn-next-question");
+        if (nextBtn && !nextBtn.classList.contains("practice-hidden")) {
+          e.preventDefault();
+          window.handleNextQuestion();
+        }
+      }
+    });
+
+    // Initialize on DOM load
+    document.addEventListener("DOMContentLoaded", function() {
+      renderCurrentQuestion();
+    });
+  })();
+</script>
+
 

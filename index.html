@@ -212,17 +212,10 @@ description: Interactive resources to learn and master English from A1 to C2 wit
           {% endif %}
         </ul>
 
-        {% if first_item_url %}
-          <a href="{{ first_item_url | relative_url }}" class="level-card-btn">
-            <span class="lang-en">Explore {{ lvl_code }} &rarr;</span>
-            <span class="lang-es">Explorar {{ lvl_code }} &rarr;</span>
-          </a>
-        {% else %}
-          <button class="level-card-btn level-nav-link" data-level="{{ lvl.id }}" style="cursor: pointer; border: none; width: 100%;">
-            <span class="lang-en">Select {{ lvl_code }} &rarr;</span>
-            <span class="lang-es">Elegir {{ lvl_code }} &rarr;</span>
-          </button>
-        {% endif %}
+        <a href="{{ '/' | append: lvl.id | append: '/index.html' | relative_url }}" class="level-card-btn">
+          <span class="lang-en">Explore {{ lvl_code }} &rarr;</span>
+          <span class="lang-es">Explorar {{ lvl_code }} &rarr;</span>
+        </a>
       </div>
     {% endfor %}
   </div>

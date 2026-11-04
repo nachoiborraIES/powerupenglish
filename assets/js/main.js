@@ -281,12 +281,22 @@
     const tables = document.querySelectorAll('.dual-lang-table');
     tables.forEach(table => {
       const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.toLowerCase());
+      const thElements = Array.from(table.querySelectorAll('thead th'));
       const rows = table.querySelectorAll('tbody tr');
 
       rows.forEach(row => {
         const cells = Array.from(row.querySelectorAll('td'));
         cells.forEach((cell, idx) => {
           if (cell.querySelector('.audio-btn')) return;
+
+          // Check if column header or cell explicitly disables audio
+          const currentTh = thElements[idx];
+          if (currentTh && (currentTh.classList.contains('no-audio') || currentTh.hasAttribute('data-no-audio') || currentTh.getAttribute('data-audio') === 'false')) {
+            return;
+          }
+          if (cell.classList.contains('no-audio') || cell.hasAttribute('data-no-audio') || cell.getAttribute('data-audio') === 'false') {
+            return;
+          }
 
           const headerText = headers[idx] || '';
           const isSpanishCol = headerText.includes('español') || 

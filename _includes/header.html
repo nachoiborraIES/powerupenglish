@@ -23,17 +23,17 @@
       <!-- CEFR Level Navigation (A1 to C2) -->
       <nav class="level-nav" aria-label="CEFR Levels">
         <ul class="level-nav-list">
-          <li><a href="{{ '/a1/who-am-i.html' | relative_url }}" class="level-nav-link {% if page.level == 'a1' %}active{% endif %}" data-level="a1" title="Level A1">A1</a></li>
-          <li><a href="{{ '/a2/descriptions.html' | relative_url }}" class="level-nav-link {% if page.level == 'a2' %}active{% endif %}" data-level="a2" title="Level A2">A2</a></li>
-          <li><a href="{{ '/b1/jobs.html' | relative_url }}" class="level-nav-link {% if page.level == 'b1' %}active{% endif %}" data-level="b1" title="Level B1">B1</a></li>
-          <li><a href="{{ '/b2/science-and-technology.html' | relative_url }}" class="level-nav-link {% if page.level == 'b2' %}active{% endif %}" data-level="b2" title="Level B2">B2</a></li>
-          <li><a href="{{ '/c1/politics-and-diplomacy.html' | relative_url }}" class="level-nav-link {% if page.level == 'c1' %}active{% endif %}" data-level="c1" title="Level C1">C1</a></li>
-          <li><a href="{{ '/c2/close-synonyms.html' | relative_url }}" class="level-nav-link {% if page.level == 'c2' %}active{% endif %}" data-level="c2" title="Level C2">C2</a></li>
+          <li><a href="{{ '/a1/index.html' | relative_url }}" class="level-nav-link {% if page.level == 'a1' %}active{% endif %}" data-level="a1" title="Level A1">A1</a></li>
+          <li><a href="{{ '/a2/index.html' | relative_url }}" class="level-nav-link {% if page.level == 'a2' %}active{% endif %}" data-level="a2" title="Level A2">A2</a></li>
+          <li><a href="{{ '/b1/index.html' | relative_url }}" class="level-nav-link {% if page.level == 'b1' %}active{% endif %}" data-level="b1" title="Level B1">B1</a></li>
+          <li><a href="{{ '/b2/index.html' | relative_url }}" class="level-nav-link {% if page.level == 'b2' %}active{% endif %}" data-level="b2" title="Level B2">B2</a></li>
+          <li><a href="{{ '/c1/index.html' | relative_url }}" class="level-nav-link {% if page.level == 'c1' %}active{% endif %}" data-level="c1" title="Level C1">C1</a></li>
+          <li><a href="{{ '/c2/index.html' | relative_url }}" class="level-nav-link {% if page.level == 'c2' %}active{% endif %}" data-level="c2" title="Level C2">C2</a></li>
         </ul>
       </nav>
 
       <!-- Completion Button (Visible when studying a topic) -->
-      {% if page.level %}
+      {% if page.level and page.category %}
       <button id="header-complete-btn" class="header-complete-btn topic-complete-toggle-btn" type="button" data-topic-url="{{ page.url }}" aria-pressed="false" title="Marcar como superada / Mark as completed">
         <span class="complete-btn-icon" aria-hidden="true">
           <svg class="icon-circle" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
