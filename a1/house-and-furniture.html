@@ -34,41 +34,625 @@ permalink: /a1/house-and-furniture.html
       <tr>
         <th>English Word</th>
         <th>Traducción al Español</th>
-        <th>Category / Categoría</th>
+        <th class="no-audio" data-no-audio>Category / Categoría</th>
       </tr>
     </thead>
     <tbody>
+      <!-- Category 1: Rooms / Habitaciones (Alphabetical in English) -->
       <tr>
-        <td><strong>Kitchen</strong></td>
-        <td>Cocina</td>
-        <td>Room / Habitación</td>
+        <td><strong>Balcony</strong></td>
+        <td>Balcón</td>
+        <td>Habitación / Room</td>
       </tr>
       <tr>
-        <td><strong>Living room</strong></td>
-        <td>Salón / Sala de estar</td>
-        <td>Room / Habitación</td>
+        <td><strong>Bathroom</strong></td>
+        <td>Cuarto de baño / Aseo</td>
+        <td>Habitación / Room</td>
       </tr>
       <tr>
         <td><strong>Bedroom</strong></td>
         <td>Dormitorio / Habitación</td>
-        <td>Room / Habitación</td>
+        <td>Habitación / Room</td>
+      </tr>
+      <tr>
+        <td><strong>Dining room</strong></td>
+        <td>Comedor</td>
+        <td>Habitación / Room</td>
+      </tr>
+      <tr>
+        <td><strong>Garage</strong></td>
+        <td>Garaje</td>
+        <td>Habitación / Room</td>
+      </tr>
+      <tr>
+        <td><strong>Garden</strong></td>
+        <td>Jardín</td>
+        <td>Habitación / Room</td>
+      </tr>
+      <tr>
+        <td><strong>Hall / Hallway</strong></td>
+        <td>Pasillo / Recibidor</td>
+        <td>Habitación / Room</td>
+      </tr>
+      <tr>
+        <td><strong>Kitchen</strong></td>
+        <td>Cocina</td>
+        <td>Habitación / Room</td>
+      </tr>
+      <tr>
+        <td><strong>Living room</strong></td>
+        <td>Salón / Sala de estar</td>
+        <td>Habitación / Room</td>
+      </tr>
+
+      <!-- Category 2: Furniture / Muebles (Alphabetical in English) -->
+      <tr>
+        <td><strong>Armchair</strong></td>
+        <td>Sillón / Butaca</td>
+        <td>Mueble / Furniture</td>
+      </tr>
+      <tr>
+        <td><strong>Bed</strong></td>
+        <td>Cama</td>
+        <td>Mueble / Furniture</td>
+      </tr>
+      <tr>
+        <td><strong>Bedside table</strong></td>
+        <td>Mesita de noche</td>
+        <td>Mueble / Furniture</td>
+      </tr>
+      <tr>
+        <td><strong>Bookcase</strong></td>
+        <td>Estantería / Librería</td>
+        <td>Mueble / Furniture</td>
+      </tr>
+      <tr>
+        <td><strong>Chair</strong></td>
+        <td>Silla</td>
+        <td>Mueble / Furniture</td>
+      </tr>
+      <tr>
+        <td><strong>Cupboard</strong></td>
+        <td>Alacena / Armario de cocina</td>
+        <td>Mueble / Furniture</td>
+      </tr>
+      <tr>
+        <td><strong>Desk</strong></td>
+        <td>Escritorio / Mesa de estudio</td>
+        <td>Mueble / Furniture</td>
+      </tr>
+      <tr>
+        <td><strong>Lamp</strong></td>
+        <td>Lámpara</td>
+        <td>Mueble / Furniture</td>
+      </tr>
+      <tr>
+        <td><strong>Mirror</strong></td>
+        <td>Espejo</td>
+        <td>Mueble / Furniture</td>
       </tr>
       <tr>
         <td><strong>Sofa / Couch</strong></td>
         <td>Sofá</td>
-        <td>Furniture / Mueble</td>
+        <td>Mueble / Furniture</td>
       </tr>
       <tr>
-        <td><strong>Dining table</strong></td>
-        <td>Mesa de comedor</td>
-        <td>Furniture / Mueble</td>
+        <td><strong>Table</strong></td>
+        <td>Mesa</td>
+        <td>Mueble / Furniture</td>
       </tr>
       <tr>
         <td><strong>Wardrobe</strong></td>
-        <td>Armario / Ropero</td>
-        <td>Furniture / Mueble</td>
+        <td>Armario (ropa) / Ropero</td>
+        <td>Mueble / Furniture</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<!-- Interactive Vocabulary Translation Practice Exercise -->
+<div class="content-card practice-container" id="translation-practice">
+  <div class="practice-header">
+    <div style="display: flex; align-items: center; gap: 0.6rem;">
+      <span class="cat-tag-pill cat-tag-exercises">
+        <span class="lang-en">Practice Exercise</span>
+        <span class="lang-es">Ejercicio Práctico</span>
+      </span>
+      <span class="practice-step-pill" id="step-counter">
+        <span class="lang-en">Item 1 of 8</span>
+        <span class="lang-es">Término 1 de 8</span>
+      </span>
+    </div>
+    <span class="practice-type-tag" id="type-badge">
+      <span class="lang-en">Type: Room</span>
+      <span class="lang-es">Tipo: Habitación</span>
+    </span>
+  </div>
+
+  <h2 style="font-size: 1.35rem; margin-bottom: 0.5rem;">
+    <span class="lang-en">Translate the Rooms and Furniture into English</span>
+    <span class="lang-es">Traduce las Habitaciones y Muebles al Inglés</span>
+  </h2>
+  <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.25rem;">
+    <span class="lang-en">
+      Translate 8 randomly chosen terms from the glossary above from Spanish to English (each time you practice, a new random set of 8 words will be selected).
+    </span>
+    <span class="lang-es">
+      Traduce al inglés 8 términos seleccionados al azar del glosario anterior (cada vez que repitas el ejercicio se elegirá una combinación diferente de 8 palabras).
+    </span>
+  </p>
+
+  <div class="practice-progress-bar-wrap">
+    <div class="practice-progress-bar-fill" id="practice-progress" style="width: 12.5%;"></div>
+  </div>
+
+  <!-- Screen 1: Active Question -->
+  <div id="exercise-question-screen">
+    <div class="practice-prompt-box">
+      <div class="practice-prompt-label">
+        <span class="lang-en">Translate this term into English:</span>
+        <span class="lang-es">Traduce este término al inglés:</span>
+      </div>
+      <div class="practice-prompt-text" id="prompt-spanish">« Cocina »</div>
+    </div>
+
+    <form id="practice-form" onsubmit="event.preventDefault(); handleCheckAnswer();">
+      <div class="practice-input-group">
+        <label for="practice-user-input" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">
+          <span class="lang-en">Your English translation:</span>
+          <span class="lang-es">Tu traducción al inglés:</span>
+        </label>
+        <input 
+          type="text" 
+          id="practice-user-input" 
+          class="practice-input" 
+          placeholder="Escribe la palabra en inglés... (p. ej. Kitchen)" 
+          autocomplete="off" 
+          spellcheck="false"
+          required
+        />
+      </div>
+
+      <div class="practice-actions">
+        <button type="button" id="btn-submit-answer" class="practice-btn-check" onclick="handleCheckAnswer()">
+          <span class="lang-en">Check Answer</span>
+          <span class="lang-es">Comprobar Respuesta</span>
+        </button>
+
+        <button type="button" id="btn-next-question" class="practice-btn-next practice-hidden" onclick="handleNextQuestion()">
+          <span class="lang-en">Next Term &rarr;</span>
+          <span class="lang-es">Siguiente Término &rarr;</span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Feedback Panel -->
+    <div id="practice-feedback-panel" class="practice-feedback practice-hidden" aria-live="polite">
+      <div class="practice-feedback-title" id="feedback-status-title"></div>
+      <div class="practice-feedback-solution" id="feedback-solution-box"></div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Results & Summary -->
+  <div id="exercise-results-screen" class="practice-results-card practice-hidden">
+    <div style="font-size: 3rem; margin-bottom: 0.5rem;" id="results-icon">🎉</div>
+    <div class="practice-results-score" id="results-score-text">8 / 8</div>
+    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;" id="results-heading">
+      <span class="lang-en">Exercise Completed!</span>
+      <span class="lang-es">¡Ejercicio Completado!</span>
+    </h3>
+    <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem;" id="results-message"></p>
+
+    <!-- Detailed Summary List of all 8 items -->
+    <div class="practice-results-list" id="results-review-list"></div>
+
+    <button type="button" class="practice-btn-check" onclick="restartExercise()" style="margin: 0 auto;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+        <path d="M3 3v5h5"></path>
+      </svg>
+      <span class="lang-en">Practice Again (New 8 Words)</span>
+      <span class="lang-es">Repetir Ejercicio (8 Palabras Nuevas)</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // Complete glossary master list (all 21 words from the table)
+    const allVocabulary = [
+      // Habitaciones / Rooms & Spaces (9)
+      {
+        typeEn: "Room",
+        typeEs: "Habitación",
+        spanish: "Balcón",
+        target: "Balcony",
+        accepted: ["balcony", "the balcony", "a balcony"]
+      },
+      {
+        typeEn: "Room",
+        typeEs: "Habitación",
+        spanish: "Cuarto de baño / Aseo",
+        target: "Bathroom",
+        accepted: ["bathroom", "the bathroom", "a bathroom", "restroom", "the restroom", "toilet", "the toilet"]
+      },
+      {
+        typeEn: "Room",
+        typeEs: "Habitación",
+        spanish: "Dormitorio / Habitación",
+        target: "Bedroom",
+        accepted: ["bedroom", "the bedroom", "a bedroom"]
+      },
+      {
+        typeEn: "Room",
+        typeEs: "Habitación",
+        spanish: "Comedor",
+        target: "Dining room",
+        accepted: ["dining room", "the dining room", "a dining room"]
+      },
+      {
+        typeEn: "Room",
+        typeEs: "Habitación",
+        spanish: "Garaje",
+        target: "Garage",
+        accepted: ["garage", "the garage", "a garage"]
+      },
+      {
+        typeEn: "Room / Space",
+        typeEs: "Habitación / Espacio",
+        spanish: "Jardín",
+        target: "Garden",
+        accepted: ["garden", "the garden", "a garden", "yard", "the yard", "backyard", "the backyard"]
+      },
+      {
+        typeEn: "Room",
+        typeEs: "Habitación",
+        spanish: "Pasillo / Recibidor",
+        target: "Hall / Hallway",
+        accepted: ["hall", "hallway", "the hall", "the hallway", "a hall", "a hallway", "corridor", "the corridor"]
+      },
+      {
+        typeEn: "Room",
+        typeEs: "Habitación",
+        spanish: "Cocina",
+        target: "Kitchen",
+        accepted: ["kitchen", "the kitchen", "a kitchen"]
+      },
+      {
+        typeEn: "Room",
+        typeEs: "Habitación",
+        spanish: "Salón / Sala de estar",
+        target: "Living room",
+        accepted: ["living room", "the living room", "a living room", "lounge", "the lounge", "sitting room", "the sitting room"]
+      },
+
+      // Mobiliario / Furniture & Items (12)
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Sillón / Butaca",
+        target: "Armchair",
+        accepted: ["armchair", "the armchair", "an armchair"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Cama",
+        target: "Bed",
+        accepted: ["bed", "the bed", "a bed"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Mesita de noche",
+        target: "Bedside table",
+        accepted: ["bedside table", "the bedside table", "a bedside table", "nightstand", "the nightstand", "a nightstand", "night table"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Estantería / Librería",
+        target: "Bookcase",
+        accepted: ["bookcase", "the bookcase", "a bookcase", "bookshelf", "the bookshelf", "a bookshelf", "shelves", "shelf"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Silla",
+        target: "Chair",
+        accepted: ["chair", "the chair", "a chair"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Alacena / Armario de cocina",
+        target: "Cupboard",
+        accepted: ["cupboard", "the cupboard", "a cupboard", "cabinet", "the cabinet", "kitchen cupboard"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Escritorio / Mesa de estudio",
+        target: "Desk",
+        accepted: ["desk", "the desk", "a desk", "study desk"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Lámpara",
+        target: "Lamp",
+        accepted: ["lamp", "the lamp", "a lamp", "light", "the light"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Espejo",
+        target: "Mirror",
+        accepted: ["mirror", "the mirror", "a mirror"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Sofá",
+        target: "Sofa",
+        accepted: ["sofa", "the sofa", "a sofa", "couch", "the couch", "a couch"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Mesa",
+        target: "Table",
+        accepted: ["table", "the table", "a table", "dining table", "the dining table"]
+      },
+      {
+        typeEn: "Furniture",
+        typeEs: "Mueble",
+        spanish: "Armario (ropa) / Ropero",
+        target: "Wardrobe",
+        accepted: ["wardrobe", "the wardrobe", "a wardrobe", "closet", "the closet", "a closet"]
+      }
+    ];
+
+    const TOTAL_QUESTIONS = 8;
+    let questions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let userAnswers = [];
+    let isChecked = false;
+
+    // Pick 8 random questions from the full vocabulary list
+    function pickRandomQuestions() {
+      const copy = [...allVocabulary];
+      // Fisher-Yates shuffle
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy.slice(0, TOTAL_QUESTIONS);
+    }
+
+    function cleanString(str) {
+      return (str || "")
+        .toLowerCase()
+        .replace(/[’']/g, "")
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?!¿¡"']/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function renderCurrentQuestion() {
+      const q = questions[currentIndex];
+      isChecked = false;
+
+      // Update counters & progress
+      const stepEl = document.getElementById("step-counter");
+      if (stepEl) {
+        stepEl.innerHTML = `<span class="lang-en">Item ${currentIndex + 1} of ${questions.length}</span><span class="lang-es">Término ${currentIndex + 1} de ${questions.length}</span>`;
+      }
+
+      const typeEl = document.getElementById("type-badge");
+      if (typeEl) {
+        typeEl.innerHTML = `<span class="lang-en">Type: ${q.typeEn}</span><span class="lang-es">Tipo: ${q.typeEs}</span>`;
+      }
+
+      const progressPercent = ((currentIndex + 1) / questions.length) * 100;
+      document.getElementById("practice-progress").style.width = progressPercent + "%";
+
+      // Set prompt
+      document.getElementById("prompt-spanish").textContent = `« ${q.spanish} »`;
+
+      // Reset input
+      const input = document.getElementById("practice-user-input");
+      input.value = "";
+      input.disabled = false;
+      input.className = "practice-input";
+      setTimeout(() => input.focus(), 60);
+
+      // Reset buttons and feedback
+      document.getElementById("btn-submit-answer").classList.remove("practice-hidden");
+      document.getElementById("btn-next-question").classList.add("practice-hidden");
+
+      const feedback = document.getElementById("practice-feedback-panel");
+      feedback.className = "practice-feedback practice-hidden";
+      feedback.innerHTML = "";
+    }
+
+    window.handleCheckAnswer = function() {
+      if (isChecked) return;
+      const input = document.getElementById("practice-user-input");
+      const userRaw = input.value.trim();
+      if (!userRaw) {
+        input.focus();
+        return;
+      }
+
+      isChecked = true;
+      const q = questions[currentIndex];
+      const cleanedUser = cleanString(userRaw);
+      const isCorrect = q.accepted.map(cleanString).includes(cleanedUser);
+
+      if (isCorrect) score++;
+
+      userAnswers.push({
+        question: q,
+        userInput: userRaw,
+        isCorrect: isCorrect
+      });
+
+      // Update input styling
+      input.disabled = true;
+      input.classList.add(isCorrect ? "is-correct" : "is-incorrect");
+
+      // Show feedback
+      const feedback = document.getElementById("practice-feedback-panel");
+      feedback.classList.remove("practice-hidden");
+      feedback.classList.add(isCorrect ? "is-correct" : "is-incorrect");
+
+      if (isCorrect) {
+        feedback.innerHTML = `
+          <div class="practice-feedback-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span class="lang-en">Correct! Well done.</span>
+            <span class="lang-es">¡Correcto! Muy bien.</span>
+          </div>
+          <div class="practice-feedback-solution">
+            <span class="lang-en">English word:</span>
+            <span class="lang-es">Palabra en inglés:</span>
+            <strong>${q.target}</strong>
+            <button type="button" class="audio-btn" data-speak="${q.target}" title="Listen / Escuchar">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </button>
+          </div>
+        `;
+      } else {
+        feedback.innerHTML = `
+          <div class="practice-feedback-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="lang-en">Not quite right.</span>
+            <span class="lang-es">No es del todo correcto.</span>
+          </div>
+          <div class="practice-feedback-solution">
+            <span class="lang-en">Correct answer:</span>
+            <span class="lang-es">Respuesta correcta:</span>
+            <strong>${q.target}</strong>
+            <button type="button" class="audio-btn" data-speak="${q.target}" title="Listen / Escuchar">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </button>
+          </div>
+        `;
+      }
+
+      // Toggle action buttons
+      document.getElementById("btn-submit-answer").classList.add("practice-hidden");
+      const nextBtn = document.getElementById("btn-next-question");
+      nextBtn.classList.remove("practice-hidden");
+      nextBtn.focus();
+    };
+
+    window.handleNextQuestion = function() {
+      currentIndex++;
+      if (currentIndex < questions.length) {
+        renderCurrentQuestion();
+      } else {
+        showResults();
+      }
+    };
+
+    function showResults() {
+      document.getElementById("exercise-question-screen").classList.add("practice-hidden");
+      document.getElementById("exercise-results-screen").classList.remove("practice-hidden");
+
+      document.getElementById("results-score-text").textContent = `${score} / ${questions.length}`;
+
+      const icon = document.getElementById("results-icon");
+      const msg = document.getElementById("results-message");
+
+      if (score === TOTAL_QUESTIONS) {
+        icon.textContent = "🏆";
+        msg.innerHTML = `<span class="lang-en">Outstanding! You've mastered house and furniture vocabulary.</span><span class="lang-es">¡Sobresaliente! Dominas todo el vocabulario de la casa y los muebles.</span>`;
+      } else if (score >= 5) {
+        icon.textContent = "👍";
+        msg.innerHTML = `<span class="lang-en">Good job! Review the words you missed to achieve a perfect score.</span><span class="lang-es">¡Buen trabajo! Revisa las palabras que has fallado para lograr una puntuación perfecta.</span>`;
+      } else {
+        icon.textContent = "💪";
+        msg.innerHTML = `<span class="lang-en">Keep practicing! Take another look at the glossary table above and try again.</span><span class="lang-es">¡Sigue practicando! Échale otro vistazo al glosario superior y vuelve a intentarlo.</span>`;
+      }
+
+      // Render summary of items
+      const reviewList = document.getElementById("results-review-list");
+      reviewList.innerHTML = userAnswers.map((item, idx) => `
+        <div class="practice-result-item ${item.isCorrect ? "was-correct" : "was-incorrect"}">
+          <div style="flex: 1;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.2rem;">
+              <span class="lang-en">${item.question.typeEn}</span><span class="lang-es">${item.question.typeEs}</span> &bull; <em>« ${item.question.spanish} »</em>
+            </div>
+            <div style="font-size: 0.95rem;">
+              <span class="lang-en">Your answer:</span><span class="lang-es">Tu respuesta:</span>
+              <span style="color: ${item.isCorrect ? "#10b981" : "#ef4444"}; font-weight: 600;">"${item.userInput}"</span>
+              ${!item.isCorrect ? `&rarr; <span class="lang-en">Correct:</span><span class="lang-es">Correcta:</span> <strong>${item.question.target}</strong>` : ""}
+            </div>
+          </div>
+          <div>
+            <button type="button" class="audio-btn" data-speak="${item.question.target}" title="Listen / Escuchar">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      `).join("");
+
+      const container = document.getElementById("translation-practice");
+      if (container) container.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function initExercise() {
+      questions = pickRandomQuestions();
+      currentIndex = 0;
+      score = 0;
+      userAnswers = [];
+      renderCurrentQuestion();
+    }
+
+    window.restartExercise = function() {
+      document.getElementById("exercise-results-screen").classList.add("practice-hidden");
+      document.getElementById("exercise-question-screen").classList.remove("practice-hidden");
+      initExercise();
+      const container = document.getElementById("translation-practice");
+      if (container) container.scrollIntoView({ behavior: "smooth" });
+    };
+
+    // Keyboard support for Enter key
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        const nextBtn = document.getElementById("btn-next-question");
+        if (nextBtn && !nextBtn.classList.contains("practice-hidden")) {
+          e.preventDefault();
+          window.handleNextQuestion();
+        }
+      }
+    });
+
+    // Initialize on DOM load
+    document.addEventListener("DOMContentLoaded", function() {
+      initExercise();
+    });
+  })();
+</script>
+
 
